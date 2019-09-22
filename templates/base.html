@@ -7,7 +7,7 @@
         {% if title %}
             <title>{{ title }} - Flask Blog</title>
         {% else %}
-            <title>Welcome to Flask Blog</title>
+            <title>Flask Blog</title>
         {% endif %}
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -16,7 +16,9 @@
     </head>
     <body>
         {% include 'includes/_nav.html' %}
-        {% block content %} {% endblock %} 
+        <div class="container">
+            {% block content %} {% endblock %} 
+        </div>
         <!-- scripts -->
         <!-- jQuery library -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
