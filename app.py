@@ -15,11 +15,12 @@ db = client.flaskBlog
 
 
 @app.route('/')
+@app.route('/home')
 def home():
 	return render_template('home.html')
 
 @app.route("/users/")
-def user_profile():
+def users():
 	user = db.blogs.find_one({"_id": ObjectId('5d8a95cf1c9d440000ed6705')})
 	return render_template('users.html', user=user)    
 
