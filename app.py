@@ -38,7 +38,7 @@ def register():
 	hashes password and adds new user to database.
 	"""
 	# form is linked to the relevant registration class
-	form = UsernamePasswordConfirm
+	form = UsernamePasswordConfirm()
 	# if form is validated, check to find the username in database
 	if form.validate_on_submit():
 		new_user = db.users.find_one({'username': request.form['username'].lower()})
