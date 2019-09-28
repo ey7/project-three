@@ -45,6 +45,7 @@ def login():
 			if check_password_hash(username_matches['password'],request.form['password']):
 				session['username'] = request.form['username']
 				session['logged_in'] = True
+				flash('You are now logged in')
 				return redirect(url_for('home'))
 			else:
 				flash('Login did not work. Please check username and password')
