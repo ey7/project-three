@@ -93,6 +93,7 @@ def logout():
 	"""
 	#end the session
 	session.clear()
+	flash('You are logged out')
 	return redirect(url_for('home'))
 
 						
