@@ -5,6 +5,7 @@ from bson.objectid import ObjectId
 from config import Config
 from pymongo import MongoClient
 from form import UsernamePasswordConfirm
+from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
 
@@ -44,13 +45,13 @@ def register():
 	# if form is validated, check to find the username in database
 	if form.validate_on_submit():
 		new_user = db.users.find_one({'username': request.form['username'].lower()})
-	# if the username does not exist, the entered password is hashed	
-	if new_user is None:
-		 hash_pass = generate_password_hash(request.form['password'])
+	# if the username does not exist, the entered password is hashed
+		if new_user is None:
+		 hash_password = generate_password_hash(request.form['password'])
 		 # new username and hashed password are entered into database
 		 db.users.insert_one({
                 'username': request.form['username'].lower(),
-                'pass': hash_pass,
+                'password': hash_password,
                 })
 		 # the username from the form is set to username in current session
 		 session['username'] = request.form['username']
@@ -59,9 +60,8 @@ def register():
 		 flash('Success! Your account has been created!')
 		 return redirect(url_for('home'))
 		 # if the username already exists, user is redirected to register page
-	flash('Sorry, username already exists. Please try another')
-	return redirect(url_for('register'))
-
+	
+	
 	return render_template('register.html', form=form, title='Register')
 						
 
