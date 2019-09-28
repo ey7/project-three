@@ -47,7 +47,9 @@ def login():
 				session['logged_in'] = True
 				return redirect(url_for('home'))
 			else:
-				flash('Login did not work. Please check username and password')  
+				flash('Login did not work. Please check username and password')
+
+
 			
 	return render_template('login.html', form=form, title='Login')
 
@@ -82,7 +84,16 @@ def register():
 	
 	
 	return render_template('register.html', form=form, title='Register')
-						
+
+#logout route for users to log out
+@app.route('/logout')
+def logout():
+	"""
+	function that logs out users and will redirect to homepage
+	"""
+	#end the session
+	session.clear()
+	return redirect(url_for('home'))
 
 						
 if __name__ == '__main__':
