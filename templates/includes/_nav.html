@@ -7,9 +7,14 @@
                     </button>
               <div class="collapse navbar-collapse" id="dropdown">
                     <ul class="navbar-nav ml-auto">
-                         <li class="nav-item">
-                          <a href="{{ url_for('home') }}" class="nav-link text-light">Home</a>
+                        {% if session.logged_in %}
+                        <li class="nav-item">
+                          <a href="{{ url_for('users') }}" class="nav-link text-light">Blog</a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ url_for('logout') }}" class="nav-link text-light">Logout</a>
+                        </li>  
+                        {% else %}               
                         <li class="nav-item">
                           <a href="{{ url_for('users') }}" class="nav-link text-light">Blog</a>
                         </li>
@@ -18,10 +23,8 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{ url_for('register') }}" class="nav-link text-light">Register</a>
-                          </li>
-                        <li class="nav-item">
-                            <a href="{{ url_for('logout') }}" class="nav-link text-light">Logout</a>
                         </li>
+                        {% endif %}
                     </ul>
               </div> <!-- end of navbar collapse -->
     </div> <!-- end of container -->
