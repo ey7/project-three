@@ -46,15 +46,9 @@ def login():
 				session['username'] = request.form['username']
 				session['logged_in'] = True
 				return redirect(url_for('home'))
-			
+			else:
 				flash('Login did not work. Please check username and password')  
 			
-			
-
-
-
-
-
 	return render_template('login.html', form=form, title='Login')
 
 # register route for new user registration
