@@ -81,9 +81,9 @@ def register():
 		 session['logged_in'] = True
 		 flash('Success! Your account has been created!')
 		 return redirect(url_for('home'))
-		 # if the username already exists, user is redirected to register page
-	
-	
+		else:
+			flash('That username is already taken. Please enter a different username')
+
 	return render_template('register.html', form=form, title='Register')
 
 #logout route for users to log out
