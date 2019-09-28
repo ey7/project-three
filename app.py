@@ -49,8 +49,6 @@ def login():
 				return redirect(url_for('home'))
 			else:
 				flash('Login did not work. Please check username and password')
-
-
 			
 	return render_template('login.html', form=form, title='Login')
 
@@ -90,11 +88,11 @@ def register():
 @app.route('/logout')
 def logout():
 	"""
-	function that logs out users and will redirect to homepage
+	function that logs user out and will redirect to homepage
 	"""
 	#end the session
 	session.clear()
-	flash('You are logged out')
+	flash('You are now logged out')
 	return redirect(url_for('home'))
 
 						
