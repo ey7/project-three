@@ -1,5 +1,42 @@
-{% extends 'base.html' %}
-
-{% block content %}
-<h1>Welcome to the login page ok</h1>
+{% extends 'base.html' %} {% block content %}
+        <h1>Login</h1>
+        <!--Register Form-->
+        <form method="POST" action="" class="form">
+            {{ form.hidden_tag() }}
+            <!--Flash Messages-->
+            {% with messages = get_flashed_messages() %} {% if messages %} 
+            {% for message in messages %}
+            <p>
+                    {{ message }}
+            </p>
+            {% endfor %} {% endif %} {% endwith %}
+            <!--username field-->
+            <div class="form__group">
+                    {% if form.username.errors %} {{ form.username(class="form-control form__input is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.username.errors %}
+                    <span>{{ error }}</span> {% endfor %}
+                </div>
+                    {% else %} 
+                        {{ form.username(autofocus=true, class="form__input", required=true, placeholder="New username") }} 
+                    {% endif %}
+            </div>
+            <!--password field-->
+            <div class="form__group">
+                    {% if form.password.errors %} {{ form.password(class="form-control form__input is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.password.errors %}
+                        <span>{{ error }}</span> {% endfor %}
+                    </div>
+                    {% else %} 
+                        {{ form.password(required=true, class="form__input", placeholder="Enter password") }} 
+                    {% endif %}
+            </div>
+                <!-- not registered message -->
+                <div class="py-4">Not Registered? Sign Up <a href="{{ url_for('register') }}">here.</a></div>
+                <!--submit button-->
+            <div class="form__group">
+                    {{ form.submit(class="btn btn-primary") }}
+            </div>
+        </form>
 {% endblock %}
