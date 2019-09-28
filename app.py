@@ -4,7 +4,7 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from config import Config
 from pymongo import MongoClient
-from form import UsernamePasswordConfirm
+from form import UsernamePasswordConfirm, UsernamePassword
 from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
@@ -28,9 +28,34 @@ def users():
 	return render_template('users.html', user=user) 
 
 # login route for user login
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
-	return render_template('login.html')
+	"""
+	login function that calls on the UserName Password class from form.py,
+	then checks to see if the username and password matches those stored
+	on the database. If yes, user is logged in. If not, user is redirected
+	"""
+	#form is linked to the relevant login class
+	form = UsernamePassword()
+	# if form is validated, continue
+	if form.validate_on_submit():
+		username_matches = db.users.find_one({'username': request.form['username'].lower()})
+		#check to ensure that hashed password matches on entered in form
+		if username_matches:
+			if check_password_hash(username_matches['password'],request.form['password']):
+				session['username'] = request.form['username']
+				session['logged_in'] = True
+				return redirect(url_for('home'))
+			
+				flash('Login did not work. Please check username and password')  
+			
+			
+
+
+
+
+
+	return render_template('login.html', form=form, title='Login')
 
 # register route for new user registration
 @app.route('/register', methods=['GET', 'POST'])
