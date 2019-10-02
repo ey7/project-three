@@ -147,14 +147,15 @@ def add_blog():
 def blogs():
 
     """
-    Displays all blogs. Pagination limits 8 per page.
+    Displays all blogs, starting with the most recent.
+    Pagination limits adjustable with blog_limit variable.
     """
 
-    blog_limit = 8
+    blog_limit = 3
     current_page = int(request.args.get('current_page', 1))
     total = db.blogs.count()
     pages = range(1, int(math.ceil(total / blog_limit)) + 1)
-    blogs = db.blogs.find().sort('_id', pymongo.ASCENDING).skip(
+    blogs = db.blogs.find().sort('_id', pymongo.DESCENDING).skip(
         (current_page - 1)*blog_limit).limit(blog_limit)
 
     return render_template('blogs.html', blogs=blogs, title='Blogs',
