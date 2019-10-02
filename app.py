@@ -1,11 +1,12 @@
-import os
+import os, math
 from flask import Flask, render_template, redirect, request, url_for, flash, session
-from flask_pymongo import PyMongo
+from flask_pymongo import PyMongo, pymongo
 from bson.objectid import ObjectId
 from config import Config
 from pymongo import MongoClient
 from form import UsernamePasswordConfirm, UsernamePassword, ContentTitleForm
 from werkzeug.security import generate_password_hash, check_password_hash
+from functools import wraps
 
 app = Flask(__name__)
 
@@ -15,7 +16,7 @@ print("Mongo is connected!")
 db = client.flaskBlog
 app.secret_key = os.getenv("SECRET_KEY")
 
-# ------------HOME ROUTES ETC -------------#
+# ------------HOME ROUTE -------------#
 
 #home route
 @app.route('/')
@@ -23,11 +24,6 @@ app.secret_key = os.getenv("SECRET_KEY")
 def home():
 	return render_template('home.html')
 
-#experimental users route
-@app.route("/users/")
-def users():
-	user = db.blogs.find_one({"_id": ObjectId('5d8a95cf1c9d440000ed6705')})
-	return render_template('users.html', user=user) 
 
 # ------------USER LOGIN, REGISTRATION, AND LOGOUT -------------#
 
@@ -44,7 +40,7 @@ def login():
 	# if form is validated, continue
 	if form.validate_on_submit():
 		username_matches = db.users.find_one({'username': request.form['username'].lower()})
-		#check to ensure that hashed password matches on entered in form
+		#check to ensure that hashed password matches one entered in form
 		if username_matches:
 			if check_password_hash(username_matches['password'],request.form['password']):
 				session['username'] = request.form['username']
@@ -88,8 +84,21 @@ def register():
 
 	return render_template('register.html', form=form, title='Register')
 
+# User logged in authorization function
+# Code credit: https://flask.palletsprojects.com/en/1.1.x/patterns/viewdecorators/
+def authorized(f):
+    @wraps(f)
+    def wrap(*args, **kwargs):
+        if 'logged_in' in session:
+            return f(*args, **kwargs)
+        else:
+            flash('You must be logged in to view this page, please login first')
+            return redirect(url_for('login'))
+    return wrap
+
 #logout route for users to log out
 @app.route('/logout')
+@authorized
 def logout():
 	"""
 	function that logs user out and will redirect to homepage
@@ -99,9 +108,26 @@ def logout():
 	flash('You are now logged out')
 	return redirect(url_for('home'))
 
+
 # ------------CREATE, READ, UPDATE AND DELETE FUNCTIONALITY-------------#
 
-#
+# Read all blogs
+@app.route('/blogs')
+def blogs():
+
+    """
+    Displays all blogs. Pagination limits 8 per page.
+    """
+
+    blog_limit = 8
+    current_page = int(request.args.get('current_page', 1))
+    total = db.blogs.count()
+    pages = range(1, int(math.ceil(total / blog_limit)) + 1)
+    blogs = db.blogs.find().sort('_id', pymongo.ASCENDING).skip(
+        (current_page - 1)*blog_limit).limit(blog_limit)
+
+    return render_template('blogs.html', blogs=blogs, title='Blogs',
+    	current_page=current_page, pages=pages)
 
 
 						

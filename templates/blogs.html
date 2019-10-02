@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %} 
+
+<h1>Blogs</h1>
+  <ul class="list-group">
+    {% for blog in blogs %}
+      <li class="list-group-item">
+      	{{blog.title}}
+      </li>
+    {% endfor %}
+  </ul>
+
+
+
+{% endblock %}
