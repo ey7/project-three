@@ -6,7 +6,13 @@
   <ul class="list-group">
     {% for blog in blogs %}
       <li class="list-group-item">
-      	{{blog.title}}
+      	<h3>Title: {{blog.title}}</h3>
+      </li>
+      <li class="list-group-item">
+      	<h6>Author: {{blog.author}}</h6>
+      </li>
+      <li class="list-group-item">
+      	{{blog.content}}
       </li>
     {% endfor %}
   </ul>

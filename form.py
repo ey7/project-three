@@ -20,10 +20,11 @@ class UsernamePassword(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired()])
     submit = SubmitField('Login')
 
-# class for article form
+# class for blog form
 class ContentTitleForm(FlaskForm):
 
     title = StringField('Title', validators=[DataRequired(),
         Length(min=1, max=150)])
     content = TextAreaField('Content', validators=[DataRequired(),
         Length(min=50)])
+    submit = SubmitField('Add new blog')

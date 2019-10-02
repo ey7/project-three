@@ -111,6 +111,37 @@ def logout():
 
 # ------------CREATE, READ, UPDATE AND DELETE FUNCTIONALITY-------------#
 
+#CREATE
+# Add a blog
+@app.route('/add_blog', methods=['GET', 'POST'])
+@authorized
+def add_blog():
+	"""
+	add_blog function that calls on the ContentTitleForm class from form.py
+	Only authorized users (logged in) can create blogs.
+	"""
+	# form variable set to ContentTitleForm
+	form = ContentTitleForm(request.form)
+	# get author details from username in session
+	author = db.users.find_one({'username': session['username']}) ['username']
+
+	if request.method == 'GET':
+		# render the template with the form
+		return render_template('add_blog.html', form=form, title='Add Blog')
+
+	if request.method == 'POST':
+		# creates new blog with the data entered in form
+		blog = db.blogs.insert_one({
+			'title': request.form['title'],
+			'content': request.form['content'],
+			'author': author,
+			})
+		flash('New Blog Added!')
+		return redirect(url_for('home'))
+	else:
+		flash('Something went wrong')	
+
+#READ
 # Read all blogs
 @app.route('/blogs')
 def blogs():
