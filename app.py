@@ -129,7 +129,7 @@ def add_blog():
 		# render the template with the form
 		return render_template('add_blog.html', form=form, title='Add Blog')
 
-	if request.method == 'POST':
+	if request.method == 'POST' and form.validate_on_submit():
 		# creates new blog with the data entered in form
 		blog = db.blogs.insert_one({
 			'title': request.form['title'],
@@ -145,12 +145,10 @@ def add_blog():
 # Read all blogs
 @app.route('/blogs')
 def blogs():
-
     """
     Displays all blogs, starting with the most recent.
     Pagination limits adjustable with blog_limit variable.
     """
-
     blog_limit = 3
     current_page = int(request.args.get('current_page', 1))
     total = db.blogs.count()
