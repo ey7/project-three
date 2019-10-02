@@ -4,7 +4,7 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from config import Config
 from pymongo import MongoClient
-from form import UsernamePasswordConfirm, UsernamePassword
+from form import UsernamePasswordConfirm, UsernamePassword, ContentTitleForm
 from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
@@ -14,6 +14,8 @@ client = MongoClient(Config.MONGO_URI)
 print("Mongo is connected!")
 db = client.flaskBlog
 app.secret_key = os.getenv("SECRET_KEY")
+
+# ------------HOME ROUTES ETC -------------#
 
 #home route
 @app.route('/')
@@ -26,6 +28,8 @@ def home():
 def users():
 	user = db.blogs.find_one({"_id": ObjectId('5d8a95cf1c9d440000ed6705')})
 	return render_template('users.html', user=user) 
+
+# ------------USER LOGIN, REGISTRATION, AND LOGOUT -------------#
 
 # login route for user login
 @app.route('/login', methods=['GET', 'POST'])
@@ -94,6 +98,11 @@ def logout():
 	session.clear()
 	flash('You are now logged out')
 	return redirect(url_for('home'))
+
+# ------------CREATE, READ, UPDATE AND DELETE FUNCTIONALITY-------------#
+
+#
+
 
 						
 if __name__ == '__main__':
