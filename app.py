@@ -125,6 +125,7 @@ def add_blog():
 	# get author details from username in session
 	author = db.users.find_one({'username': session['username']}) ['username']
 	posted_on = datetime.datetime.now().strftime("%d-%m-%Y")
+
 	if request.method == 'GET':
 		# render the template with the form
 		return render_template('add_blog.html', form=form, title='Add Blog')
@@ -149,10 +150,51 @@ def blogs():
     """
     Displays all blogs, starting with the most recent.
     """
-    
     blogs = db.blogs.find().sort('_id', pymongo.DESCENDING)
-
     return render_template('blogs.html', blogs=blogs, title='Blogs')
+
+#UPDATE
+# Update a particular blog
+@app.route('/edit_blog/<blog_id>', methods=['GET', 'POST'])
+@authorized
+def edit_blog(blog_id):
+	"""
+	Allows an authorized user to edit his/her own posts only.
+	Calls on the ContentTitleForm class from form.py
+	"""
+	#  assign the current_user
+	current_user = db.users.find_one({'username': session['username']})
+	#  assign the current blog post
+	blog_selected = db.blogs.find_one({'_id': ObjectId(blog_id)})
+	#  assign the author to the id of the username in session
+	author = db.users.find_one({'username': session['username']}) ['_id']
+	# assign the posted_on variable
+	posted_on = datetime.datetime.now().strftime("%d-%m-%Y")
+	# assign the form to the relevant form class from form.py
+	form = ContentTitleForm()
+	#if user id matches that of the blog author
+	if current_user['_id'] == blog_selected['author']:
+		# fill the form with the selected data
+		form = ContentTitleForm(data=blog_selected)
+
+		# if the method is post and the form validates
+		if request.method == 'POST' and form.validate_on_submit():
+			
+			# blog is updated with the changes entered into form
+			blog = db.blogs.update_one({'_id': ObjectId(blog_id)}, {'$set': {
+				'title': request.form['title'],
+				'content': request.form['content'],
+				'author': current_user,
+				'posted_on': posted_on,
+				}})
+
+			flash('Success! Your blog has been updated!')
+			return redirect (url_for('blogs', blog_id=blog_id))
+		else:
+			flash('Sorry you must be the author to edit this blog')
+			return redirect (url_for('blogs', blog_id=blog_id))
+
+			return render_template('edit_blog.html', blog=blog_selected, form=form, title='Edit Blog')
 
 
 						

@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {% block content %}
+        <h1>Edit your blog</h1>
+        <!--Register Form-->
+        <form method="POST" action="" class="form">
+            {{ form.hidden_tag() }}
+            <!--Flash Messages-->
+            {% with messages = get_flashed_messages() %} {% if messages %} 
+            {% for message in messages %}
+            <p>
+                    {{ message }}
+            </p>
+            {% endfor %} {% endif %} {% endwith %}
+            <!--title field-->
+            <div class="form__group">
+                    {% if form.title.errors %} {{ form.title(class="form-control form__input is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.title.errors %}
+                    <span>{{ error }}</span> {% endfor %}
+                </div>
+                    {% else %} 
+                        {{ form.title(autofocus=true, class="form__input", required=true, placeholder=" Enter title") }} 
+                    {% endif %}
+            </div>
+            <!-- content field-->
+            <div class="form__group">
+                    {% if form.content.errors %} {{ form.content(class="form-control form__input is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.content.errors %}
+                        <span>{{ error }}</span> {% endfor %}
+                    </div>
+                    {% else %} 
+                        {{ form.content(required=true, class="form__input", placeholder="Enter blog content") }} 
+                    {% endif %}
+            </div>
+            <div class="form__group">
+                    {{ form.submit(class="btn btn-primary") }}
+            </div>
+        </form>
+{% endblock %}
