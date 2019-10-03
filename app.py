@@ -1,4 +1,4 @@
-import os, math
+import os, math, datetime
 from flask import Flask, render_template, redirect, request, url_for, flash, session
 from flask_pymongo import PyMongo, pymongo
 from bson.objectid import ObjectId
@@ -124,7 +124,7 @@ def add_blog():
 	form = ContentTitleForm(request.form)
 	# get author details from username in session
 	author = db.users.find_one({'username': session['username']}) ['username']
-
+	posted_on = datetime.datetime.now().strftime("%d-%m-%Y")
 	if request.method == 'GET':
 		# render the template with the form
 		return render_template('add_blog.html', form=form, title='Add Blog')
@@ -135,6 +135,7 @@ def add_blog():
 			'title': request.form['title'],
 			'content': request.form['content'],
 			'author': author,
+			'posted_on': posted_on,
 			})
 		flash('New Blog Added!')
 		return redirect(url_for('home'))
