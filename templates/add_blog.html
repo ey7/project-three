@@ -22,7 +22,7 @@
                     {% endif %}
             </div>
             <!-- content field-->
-            <div class="form__group">
+            <div class="form__group" id="editor">
                     {% if form.content.errors %} {{ form.content(class="form-control form__input is-invalid") }}
                     <div class="invalid-feedback">
                         {% for error in form.content.errors %}
