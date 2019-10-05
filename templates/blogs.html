@@ -1,7 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %} 
-
+<!--Flash Messages-->
+            {% with messages = get_flashed_messages() %} {% if messages %} 
+            {% for message in messages %}
+            <p>
+                    {{ message }}
+            </p>
+            {% endfor %} {% endif %} {% endwith %}
 <h1>Blogs</h1>
   <ul class="list-group">
     {% for blog in blogs %}

@@ -162,8 +162,14 @@ def blog(blog_id):
 	"""
 	# assign the variable blog to the id of the blog passed in
 	blog = db.blogs.find_one({'_id': ObjectId(blog_id)})
+	# If logged in, user set to session username, author set to session user id
+	if 'logged_in' in session:
+		current_user = db.users.find_one({'username': session['username']})
+		author = db.users.find_one({'username': session['username']})['_id']
 
-	return render_template('blog.html', blog=blog, title='Blog')
+		return render_template('blog.html', blog=blog, title=blog['title'], current_user=current_user, author=author)
+	else:
+		return render_template('blog.html', blog=blog, title='Blog')
 
 #UPDATE
 # Update a particular blog
@@ -175,17 +181,18 @@ def edit_blog(blog_id):
 	Calls on the ContentTitleForm class from form.py
 	"""
 	#  assign the current_user
-	current_user = db.users.find_one({'username': session['username']})
+	current_user = session.get('username')
 	#  assign the current blog post
 	blog_selected = db.blogs.find_one({'_id': ObjectId(blog_id)})
-	#  assign the author to the id of the username in session
-	author = db.users.find_one({'username': session['username']}) ['_id']
 	# assign the posted_on variable
 	posted_on = datetime.datetime.now().strftime("%d-%m-%Y")
 	# assign the form to the relevant form class from form.py
 	form = ContentTitleForm()
-	#if  current user id matches that of the blog author
-	if current_user['_id'] == blog_selected['author']:
+	# if the current username matches that of the blog_selected author
+	if current_user != blog_selected['author']:
+		flash('Sorry you must be the author to edit this blog')
+		return redirect (url_for('blog', blog_id=blog_id))
+	else:
 		# fill the form with the selected data
 		form = ContentTitleForm(data=blog_selected)
 
@@ -203,8 +210,6 @@ def edit_blog(blog_id):
 			flash('Success! Your blog has been updated!')
 			return redirect (url_for('blogs', blog_id=blog_id))
 		else:
-			flash('Sorry you must be the author to edit this blog')
-			return redirect (url_for('blogs', blog_id=blog_id))
 
 			return render_template('edit_blog.html', blog=blog_selected, form=form, title='Edit Blog')
 
