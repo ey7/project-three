@@ -172,7 +172,7 @@ def edit_blog(blog_id):
 	posted_on = datetime.datetime.now().strftime("%d-%m-%Y")
 	# assign the form to the relevant form class from form.py
 	form = ContentTitleForm()
-	#if user id matches that of the blog author
+	#if  current user id matches that of the blog author
 	if current_user['_id'] == blog_selected['author']:
 		# fill the form with the selected data
 		form = ContentTitleForm(data=blog_selected)
@@ -196,6 +196,31 @@ def edit_blog(blog_id):
 
 			return render_template('edit_blog.html', blog=blog_selected, form=form, title='Edit Blog')
 
+#DELETE
+# Delete a particular blog
+@app.route('/delete/<blog_id>')
+@authorized
+def delete(blog_id):
+	"""
+	function to delete the current user's blogs. 
+	Only blog author can delete their own work.
+	"""
+	# assigns the current user
+	current_user = db.users.find_one({'username': session['username']})
+	# assigns the blog
+	blog_selected = db.blogs.find_one({'_id': ObjectId(blog_id)})
+	# assigns the author to the id of the username in session
+	author = db.users.find_one({'username': session['username']}) ['_id']
+	#if current user id matches that of the blog author
+	if current_user['_id'] == blog_selected['author']:
+		#blog is deleted
+		db.blogs.delete_one({'_id': ObjectId(blog_id)})
+		flash('Success, your blog has been deleted')
+		return redirect(url_for('home'))
+	else:
+		# user gets a message to say they cannot delete this blog
+		flash('You must be the author to delete this blog')
+		return redirect(url_for('blogs'))
 
 						
 if __name__ == '__main__':
