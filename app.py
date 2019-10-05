@@ -123,7 +123,7 @@ def add_blog():
 	# form variable set to ContentTitleForm
 	form = ContentTitleForm(request.form)
 	# get author details from username in session
-	author = db.users.find_one({'username': session['username']}) ['username']
+	author = session.get('username')
 	posted_on = datetime.datetime.now().strftime("%d-%m-%Y")
 
 	if request.method == 'GET':
@@ -188,7 +188,7 @@ def edit_blog(blog_id):
 	posted_on = datetime.datetime.now().strftime("%d-%m-%Y")
 	# assign the form to the relevant form class from form.py
 	form = ContentTitleForm()
-	# if the current username matches that of the blog_selected author
+	# if the current username does not match that of the blog_selected author, block the edit
 	if current_user != blog_selected['author']:
 		flash('Sorry you must be the author to edit this blog')
 		return redirect (url_for('blog', blog_id=blog_id))
@@ -226,7 +226,7 @@ def delete(blog_id):
 	current_user = session.get('username')
 	# assigns the blog
 	blog_selected = db.blogs.find_one({'_id': ObjectId(blog_id)})
-	#if the current username matches that of the blog_selected author
+	#if the current username does not match that of the blog_selected author, block the delete
 	if current_user != blog_selected['author']:
 		# user gets a message to say they cannot delete this blog
 		flash('You must be the author to delete this blog')
