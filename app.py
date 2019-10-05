@@ -151,7 +151,7 @@ def blogs():
     Displays all blogs, starting with the most recent.
     """
     blogs = db.blogs.find().sort('_id', pymongo.DESCENDING)
-    
+
     return render_template('blogs.html', blogs=blogs, title='Blogs')
 
 # Read and display one blog
@@ -164,7 +164,6 @@ def blog(blog_id):
 	blog = db.blogs.find_one({'_id': ObjectId(blog_id)})
 
 	return render_template('blog.html', blog=blog, title='Blog')
-
 
 #UPDATE
 # Update a particular blog
@@ -229,11 +228,11 @@ def delete(blog_id):
 		#blog is deleted
 		db.blogs.delete_one({'_id': ObjectId(blog_id)})
 		flash('Success, your blog has been deleted')
-		return redirect(url_for('home'))
+		return redirect(url_for('blogs', blog_id=blog_id))
 	else:
 		# user gets a message to say they cannot delete this blog
 		flash('You must be the author to delete this blog')
-		return redirect(url_for('blogs'))
+		return redirect(url_for('blog', blog_id=blog_id))
 
 						
 if __name__ == '__main__':
