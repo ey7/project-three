@@ -5,10 +5,8 @@
 <h1>Blogs</h1>
   <ul class="list-group">
     {% for blog in blogs %}
-      <li class="list-group-item"><a href="article/{{blog._id}}">{{blog.title}}</a></li>
+      <li class="list-group-item"><a href="blog/{{blog._id}}">{{blog.title}}</a></li>
     {% endfor %}
   </ul>
-
-
 
 {% endblock %}

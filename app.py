@@ -151,7 +151,20 @@ def blogs():
     Displays all blogs, starting with the most recent.
     """
     blogs = db.blogs.find().sort('_id', pymongo.DESCENDING)
+    
     return render_template('blogs.html', blogs=blogs, title='Blogs')
+
+# Read and display one blog
+@app.route('/blog/<blog_id>')
+def blog(blog_id):
+	"""
+	Display one blog
+	"""
+	# assign the variable blog to the id of the blog passed in
+	blog = db.blogs.find_one({'_id': ObjectId(blog_id)})
+
+	return render_template('blog.html', blog=blog, title='Blog')
+
 
 #UPDATE
 # Update a particular blog
