@@ -22,14 +22,14 @@
                     {% endif %}
             </div>
             <!-- content field-->
-            <div class="form__group" id="editor">
+            <div class="form__group" >
                     {% if form.content.errors %} {{ form.content(class="form-control form__input is-invalid") }}
                     <div class="invalid-feedback">
                         {% for error in form.content.errors %}
                         <span>{{ error }}</span> {% endfor %}
                     </div>
                     {% else %} 
-                        {{ form.content(required=true, class="form__input", placeholder="Enter blog content") }} 
+                        {{ form.content(required=true, class="form__input", id="editor", placeholder="Enter blog content") }} 
                     {% endif %}
             </div>
             <div class="form__group">
