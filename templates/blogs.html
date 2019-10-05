@@ -5,15 +5,7 @@
 <h1>Blogs</h1>
   <ul class="list-group">
     {% for blog in blogs %}
-      <li class="list-group-item">
-      	<h3>Title: {{blog.title}}</h3>
-      </li>
-      <li class="list-group-item">
-      	<h6>Posted by <strong>{{blog.author}} </strong> on {{blog.posted_on}}</h6>
-      </li>
-      <li class="list-group-item">
-      	{{blog.content | safe }}
-      </li>
+      <li class="list-group-item"><a href="article/{{blog._id}}">{{blog.title}}</a></li>
     {% endfor %}
   </ul>
 
