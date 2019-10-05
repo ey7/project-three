@@ -223,21 +223,20 @@ def delete(blog_id):
 	Only blog author can delete their own work.
 	"""
 	# assigns the current user
-	current_user = db.users.find_one({'username': session['username']})
+	current_user = session.get('username')
 	# assigns the blog
 	blog_selected = db.blogs.find_one({'_id': ObjectId(blog_id)})
-	# assigns the author to the id of the username in session
-	author = db.users.find_one({'username': session['username']}) ['_id']
-	#if current user id matches that of the blog author
-	if current_user['_id'] == blog_selected['author']:
+	#if the current username matches that of the blog_selected author
+	if current_user != blog_selected['author']:
+		# user gets a message to say they cannot delete this blog
+		flash('You must be the author to delete this blog')
+		return redirect(url_for('blog', blog_id=blog_id))
+	else:
 		#blog is deleted
 		db.blogs.delete_one({'_id': ObjectId(blog_id)})
 		flash('Success, your blog has been deleted')
 		return redirect(url_for('blogs', blog_id=blog_id))
-	else:
-		# user gets a message to say they cannot delete this blog
-		flash('You must be the author to delete this blog')
-		return redirect(url_for('blog', blog_id=blog_id))
+		
 
 						
 if __name__ == '__main__':
