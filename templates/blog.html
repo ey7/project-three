@@ -15,6 +15,6 @@
   <div>
     {{blog.content | safe }}
   </div>
-  <a href="/edit_blog/{{blog._id}}" class="btn btn-primary">Edit</a>
-  <a href="/delete/{{blog._id}}" class="btn btn-primary">Delete</a>
+  <a href="{{(url_for('edit_blog', blog_id=blog._id))}}" class="btn btn-primary">Edit</a>
+  <a href="/{{(url_for('delete', blog_id=blog._id))}}" class="btn btn-primary">Delete</a>
 {% endblock %}
