@@ -25,7 +25,7 @@ def home():
 	return render_template('home.html')
 
 
-# ------------USER LOGIN, REGISTRATION, AND LOGOUT -------------#
+# ------------USER LOGIN, REGISTRATION, ACCOUNT AND LOGOUT -------------#
 
 # login route for user login
 @app.route('/login', methods=['GET', 'POST'])
@@ -95,6 +95,26 @@ def authorized(f):
             flash('You must be logged in to view this page, please login first')
             return redirect(url_for('login'))
     return wrap
+
+# user account route and function
+@app.route('/account/<account_name>')
+@authorized
+def account(account_name):
+	# if account name is not equal to username in session, deny access
+	if account_name != session.get('username'):
+		flash('Access denied, you are not the owner of this account')
+		return redirect(url_for('home'))
+	else:
+		# assigns the current user
+		current_user = db.users.find_one({'username': account_name })
+		# assigns the current_users blogs
+		current_user_blogs = db.blogs.find({'author': account_name}).sort([('title', 1)])
+		# get the count of the user's blogs
+		count = db.blogs.find({'author': account_name }).count()
+		#return the acccount template
+
+	return render_template('account.html', account_name=account_name, current_user=current_user,
+		current_user_blogs=current_user_blogs, count=count, title='My Account')
 
 #logout route for users to log out
 @app.route('/logout')
@@ -215,7 +235,7 @@ def edit_blog(blog_id):
 
 #DELETE
 # Delete a particular blog
-@app.route('/delete/<blog_id>')
+@app.route('/delete/<blog_id>', methods=['GET','POST'])
 @authorized
 def delete(blog_id):
 	"""

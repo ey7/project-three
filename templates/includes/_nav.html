@@ -13,9 +13,12 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{ url_for('add_blog') }}" class="nav-link text-light">Add a blog</a>
-                        </li>  
+                        </li> 
                         <li class="nav-item">
-                            <a href="{{ url_for('logout') }}" class="nav-link text-light">Logout</a>
+                            <a href="{{url_for('account', account_name=session.username)}}" class="nav-link text-light">Account</a>
+                        </li>   
+                        <li class="nav-item">
+                            <a href="{{ url_for('logout')}}" class="nav-link text-light">Logout</a>
                         </li>  
                         {% else %}               
                         <li class="nav-item">
