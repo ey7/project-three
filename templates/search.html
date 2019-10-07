@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %} 
+<h1> Search</h1>
+<form action="{{ url_for('search', search_query=search_query, current_page=current_page) }}">
+                <input type="text" class="search__input" name="search_query" placeholder="Search blogs">
+                <button class="search__button"></button>
+            </form>
+{% for result in results %}
+ {{result.content}}
+
+{% endfor %}
+
+
+{% endblock %}

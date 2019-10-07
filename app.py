@@ -256,7 +256,31 @@ def delete(blog_id):
 		db.blogs.delete_one({'_id': ObjectId(blog_id)})
 		flash('Success, your blog has been deleted')
 		return redirect(url_for('blogs', blog_id=blog_id))
-		
+
+#SEARCH
+# Allows a user to make a text search
+@app.route('/search')
+def search():
+	"""
+	Text search functionality. Author, title and content are searchable indices.
+	In the mongo shell, type: db.blogs.createIndex({author: "text", title: "text", 
+	content:"text" })
+	"""
+	# assign the search query variable
+	search_query = request.args.get('search_query')
+	# assign the page variable
+	current_page = int(request.args.get('current_page', 1))
+	per_page = 5
+	# search results will be sorted by id
+	results = db.blogs.find({'$text': {'$search': str(search_query)}},
+		{'score': {'$meta': 'textScore'}}).sort('_id', pymongo.ASCENDING).skip((current_page -1 )*per_page).limit(per_page)
+
+	return render_template('search.html',
+		per_page=per_page,
+		current_page=current_page,
+		search_query=search_query,
+		results=results,
+		)
 
 						
 if __name__ == '__main__':

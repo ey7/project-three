@@ -9,9 +9,14 @@
             </p>
             {% endfor %} {% endif %} {% endwith %}
 <h1>Blogs</h1>
+<a href="{{ url_for('search',per_page=per_page,
+    current_page=current_page,
+    search_query=search_query,
+    results=results,) }}">Search blogs</a>
+    <hr>
   <ul class="list-group">
     {% for blog in blogs %}
-      <li class="list-group-item"><a href="{{(url_for('blog', blog_id=blog._id))}}">{{blog.title}}</a></li>
+      <li class="list-group-item"><a href="{{(url_for('blog',blog_id=blog._id))}}">{{blog.title}}</a></li>
     {% endfor %}
   </ul>
 
