@@ -276,8 +276,8 @@ def search():
 		{'score': {'$meta': 'textScore'}}).sort('_id', pymongo.ASCENDING).skip((current_page -1 )*per_page).limit(per_page)
 
 	return render_template('search.html',
-		per_page=per_page,
 		current_page=current_page,
+		per_page=per_page,
 		search_query=search_query,
 		results=results,
 		)

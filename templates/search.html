@@ -7,7 +7,11 @@
                 <button class="search__button"></button>
             </form>
 {% for result in results %}
- {{result.content}}
+<p> <strong>these are the results from the content search</strong></p>
+ {{result.title | safe}} 
+
+
+
 
 {% endfor %}
 
