@@ -262,9 +262,8 @@ def delete(blog_id):
 @app.route('/search')
 def search():
 	"""
-	Text search functionality. Author, title and content are searchable indices.
-	In the mongo shell, type: db.blogs.createIndex({author: "text", title: "text", 
-	content:"text" })
+	Text search functionality. Blog title is a searchable index.
+	In the mongo shell, type: db.blogs.createIndex({title: "text"})
 	"""
 	# assign the search query variable
 	search_query = request.args.get('search_query')
