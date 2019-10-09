@@ -273,8 +273,13 @@ def search():
 	# search results will be sorted by id
 	results = db.blogs.find({'$text': {'$search': str(search_query)}},
 		{'score': {'$meta': 'textScore'}}).sort('_id', pymongo.ASCENDING).skip((current_page -1 )*per_page).limit(per_page)
+	# if result is zero, flash message
+	if results == None:
+		flash('There are no results to display')
+			
+	else:
 
-	return render_template('search.html',
+		return render_template('search.html',
 		current_page=current_page,
 		per_page=per_page,
 		search_query=search_query,
