@@ -1,14 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<!--Flash Messages-->
-            {% with messages = get_flashed_messages() %} {% if messages %} 
-            {% for message in messages %}
-            <p>
-                    {{ message }}
-            </p>
-            {% endfor %} {% endif %} {% endwith %}
-<hr>
+
   <h1>{{blog.title}}</h1>
   <h6>Written by <strong>{{blog.author | capitalize }}</strong> on {{blog.posted_on}}</h6>
   <hr>

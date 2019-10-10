@@ -3,13 +3,7 @@
         <!--Register Form-->
         <form method="POST" action="" class="form">
             {{ form.hidden_tag() }}
-            <!--Flash Messages-->
-            {% with messages = get_flashed_messages() %} {% if messages %} 
-            {% for message in messages %}
-            <p>
-                    {{ message }}
-            </p>
-            {% endfor %} {% endif %} {% endwith %}
+            
             <!--username field-->
             <div class="form__group">
                     {% if form.username.errors %} {{ form.username(class="form-control form__input is-invalid") }}
