@@ -229,7 +229,7 @@ def edit_blog(blog_id):
 				}})
 
 			flash('Success! Your blog has been updated!', 'success')
-			return redirect (url_for('blogs', blog_id=blog_id))
+			return redirect (url_for('account', account_name=current_user))
 		else:
 			flash('Please note that you must fill in both fields', 'danger')
 			return render_template('edit_blog.html', blog=blog_selected, form=form, title='Edit Blog')
@@ -251,12 +251,12 @@ def delete(blog_id):
 	if current_user != blog_selected['author']:
 		# user gets a message to say they cannot delete this blog
 		flash('You must be the author to delete this blog', 'danger')
-		return redirect(url_for('blog', blog_id=blog_id))
+		return redirect(url_for('account', account_name=current_user))
 	else:
 		#blog is deleted
 		db.blogs.delete_one({'_id': ObjectId(blog_id)})
 		flash('Success, your blog has been deleted', 'success')
-		return redirect(url_for('blogs', blog_id=blog_id))
+		return redirect(url_for('account', account_name=current_user))
 
 #SEARCH
 # Allows a user to make a text search
