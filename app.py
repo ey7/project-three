@@ -284,6 +284,7 @@ def search():
 		per_page=per_page,
 		search_query=search_query,
 		results=results,
+		title='Search'
 		)
 
 						
