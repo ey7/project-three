@@ -45,10 +45,10 @@ def login():
 			if check_password_hash(username_matches['password'],request.form['password']):
 				session['username'] = request.form['username']
 				session['logged_in'] = True
-				flash('You are now logged in')
+				flash('You are now logged in', 'success')
 				return redirect(url_for('home'))
 		else:
-				flash('Login did not work. Please check username and password')
+				flash('Login did not work. Please check username and password', 'danger')
 			
 	return render_template('login.html', form=form, title='Login')
 
@@ -77,10 +77,10 @@ def register():
 		 session['username'] = request.form['username']
 		 # current session username is logged in and redirected to home page
 		 session['logged_in'] = True
-		 flash('Success! Your account has been created!')
+		 flash('Success! Your account has been created!', 'success')
 		 return redirect(url_for('home'))
 		else:
-			flash('That username is already taken. Please enter a different username')
+			flash('That username is already taken. Please enter a different username', 'danger')
 
 	return render_template('register.html', form=form, title='Register')
 
@@ -92,7 +92,7 @@ def authorized(f):
         if 'logged_in' in session:
             return f(*args, **kwargs)
         else:
-            flash('You must be logged in to view this page, please login first')
+            flash('You must be logged in to view this page, please login first', 'danger')
             return redirect(url_for('login'))
     return wrap
 
@@ -102,7 +102,7 @@ def authorized(f):
 def account(account_name):
 	# if account name is not equal to username in session, deny access
 	if account_name != session.get('username'):
-		flash('Access denied, you are not the owner of this account')
+		flash('Access denied, you are not the owner of this account', 'danger')
 		return redirect(url_for('home'))
 	else:
 		# assigns the current user
@@ -125,7 +125,7 @@ def logout():
 	"""
 	#end the session
 	session.clear()
-	flash('You are now logged out')
+	flash('You are now logged out', 'success')
 	return redirect(url_for('home'))
 
 
@@ -158,10 +158,11 @@ def add_blog():
 			'author': author,
 			'posted_on': posted_on,
 			})
-		flash('New Blog Added!')
+		flash('New Blog Added!', 'success')
 		return redirect(url_for('home'))
 	else:
-		flash('Something went wrong')	
+		flash('You cannot have empty edit fields', 'danger')
+		return redirect(url_for('home'))	
 
 #READ
 # Read all blogs
@@ -210,7 +211,7 @@ def edit_blog(blog_id):
 	form = ContentTitleForm()
 	# if the current username does not match that of the blog_selected author, block the edit
 	if current_user != blog_selected['author']:
-		flash('Sorry you must be the author to edit this blog')
+		flash('Sorry you must be the author to edit this blog', 'danger')
 		return redirect (url_for('blog', blog_id=blog_id))
 	else:
 		# fill the form with the selected data
@@ -227,10 +228,10 @@ def edit_blog(blog_id):
 				'posted_on': posted_on,
 				}})
 
-			flash('Success! Your blog has been updated!')
+			flash('Success! Your blog has been updated!', 'success')
 			return redirect (url_for('blogs', blog_id=blog_id))
 		else:
-			flash('You must fill in both fields')
+			flash('Please note that you must fill in both fields', 'danger')
 			return render_template('edit_blog.html', blog=blog_selected, form=form, title='Edit Blog')
 
 #DELETE
@@ -249,12 +250,12 @@ def delete(blog_id):
 	#if the current username does not match that of the blog_selected author, block the delete
 	if current_user != blog_selected['author']:
 		# user gets a message to say they cannot delete this blog
-		flash('You must be the author to delete this blog')
+		flash('You must be the author to delete this blog', 'danger')
 		return redirect(url_for('blog', blog_id=blog_id))
 	else:
 		#blog is deleted
 		db.blogs.delete_one({'_id': ObjectId(blog_id)})
-		flash('Success, your blog has been deleted')
+		flash('Success, your blog has been deleted', 'success')
 		return redirect(url_for('blogs', blog_id=blog_id))
 
 #SEARCH
