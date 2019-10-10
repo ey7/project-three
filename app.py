@@ -230,7 +230,7 @@ def edit_blog(blog_id):
 			flash('Success! Your blog has been updated!')
 			return redirect (url_for('blogs', blog_id=blog_id))
 		else:
-
+			flash('You must fill in both fields')
 			return render_template('edit_blog.html', blog=blog_selected, form=form, title='Edit Blog')
 
 #DELETE
