@@ -14,12 +14,7 @@
                 <button class="search__button"></button>
             </form>
 {% for result in results %}
-<li class="list-group-item">
-	{{result.title}}
-</li>
-
-
-
+<li class="list-group-item"><a href="{{(url_for('blog',blog_id=result._id))}}">{{result.title}}</a></li>
 
 
 {% endfor %}
