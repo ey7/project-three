@@ -159,10 +159,10 @@ def add_blog():
 			'posted_on': posted_on,
 			})
 		flash('New Blog Added!', 'success')
-		return redirect(url_for('home'))
+		return redirect(url_for('account', account_name=author))
 	else:
 		flash('You cannot have empty edit fields', 'danger')
-		return redirect(url_for('home'))	
+		return redirect(url_for('account', account_name=author))	
 
 #READ
 # Read all blogs
