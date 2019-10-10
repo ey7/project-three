@@ -13,11 +13,15 @@
                 <input type="text" class="search__input" name="search_query" placeholder="Search blogs">
                 <button class="search__button"></button>
             </form>
+         {% if results %}
 {% for result in results %}
 <li class="list-group-item"><a href="{{(url_for('blog',blog_id=result._id))}}">{{result.title}}</a></li>
+{% else %}
 
+<p> sorry there are no results to display</p>
 
 {% endfor %}
+{% endif %}
 
 
 {% endblock %}
