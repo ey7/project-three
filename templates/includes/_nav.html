@@ -1,7 +1,11 @@
 <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
     <div class="container">
         <a href="/" class="navbar-brand font-weight-bold">Flask Blog</a>
+        {% if title %}
+            <span class="pl-3 text-light d-none d-lg-block">{{title}}</span>
+           {% else %}
             <span class="pl-3 text-light d-none d-lg-block">A blog</span>
+            {% endif %}
                     <button class="navbar-toggler" data-toggle="collapse" data-target="#dropdown">
                           <span class="navbar-toggler-icon"></span>
                     </button>
@@ -30,6 +34,7 @@
                         {% endif %}
                     </ul>
               </div> <!-- end of navbar collapse -->
+        
     </div> <!-- end of container -->
 </nav> <!-- end of nav -->
 
