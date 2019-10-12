@@ -1,13 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<!--Flash Messages-->
-            {% with messages = get_flashed_messages() %} {% if messages %} 
-            {% for message in messages %}
-            <p>
-                    {{ message }}
-            </p>
-            {% endfor %} {% endif %} {% endwith %} 
+
 <h1> Search</h1>
 <form action="{{ url_for('search', search_query=search_query, current_page=current_page, results=results) }}">
                 <input type="text" class="search__input" name="search_query" placeholder="Search blogs">
@@ -18,7 +12,7 @@
 <li class="list-group-item"><a href="{{(url_for('blog',blog_id=result._id))}}">{{result.title}}</a></li>
 {% else %}
 
-<p> sorry there are no results to display</p>
+<p> Sorry there are no results to display</p>
 <a href="{{(url_for('blogs'))}}">Return to Blogs</a>
 
 {% endfor %}
