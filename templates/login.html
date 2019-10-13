@@ -26,11 +26,12 @@
                         {{ form.password(required=true, class="form__input", placeholder="Enter password") }} 
                     {% endif %}
             </div>
-                <!-- not registered message -->
-                <div class="py-4">Not Registered? Sign Up <a href="{{ url_for('register') }}">here.</a></div>
                 <!--submit button-->
-            <div class="form__group">
+                <div class="form__group">
                     {{ form.submit(class="btn btn-primary") }}
-            </div>
+                </div>
+                    <!-- not registered message -->
+                    <div class="py-4">Not Registered? Sign Up <a href="{{ url_for('register') }}">here.</a></div>
+                
         </form>
 {% endblock %}
