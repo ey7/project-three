@@ -1,6 +1,8 @@
 <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
     <div class="container">
-        <a href="/" class="navbar-brand font-weight-bold">Flask Blog</a>
+        
+        <a href="/" class="navbar-brand font-weight-bold"><img src="{{ url_for('static', filename='images/home.svg') }}" class="home-icon" alt="Home icon">Flask Blog</a>
+
         {% if title %}
             <span class="pl-3 text-light d-none d-lg-block">{{title}}</span>
            {% else %}
