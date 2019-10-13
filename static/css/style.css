@@ -8,10 +8,24 @@
 
   	font-family: 'Exo 2', sans-serif;
   }
+
+  a:hover {
+  background-color: grey;
+}
 .home-icon {
 	margin-bottom: 10px;
-	margin-right: 5px;
+	margin-right:5px;
 	width: 20px;
 	height: 20px;
 }
 
+.key-icon {
+	width: 20px;
+	height: 20px;
+	margin-right: 5px;
+}
+
+.blogs-icon {
+	width: 20px;
+	height: 20px;
+	margin-right: 5px;
