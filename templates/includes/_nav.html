@@ -15,13 +15,13 @@
                     <ul class="navbar-nav ml-auto">
                         {% if session.logged_in %}
                         <li class="nav-item">
-                            <a href="{{ url_for('blogs') }}" class="nav-link text-light">Blogs</a>
+                            <a href="{{ url_for('blogs') }}" class="nav-link text-light"><img src="{{ url_for('static', filename='images/book-reference.svg') }}" class="blogs-icon" alt="Blogs">Blogs</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{url_for('account', account_name=session.username)}}" class="nav-link text-light">Account</a>
+                            <a href="{{url_for('account', account_name=session.username)}}" class="nav-link text-light"><img src="{{ url_for('static', filename='images/user.svg') }}" class="account-icon" alt="Account">Account</a>
                         </li>   
                         <li class="nav-item">
-                            <a href="{{ url_for('logout')}}" class="nav-link text-light">Logout</a>
+                            <a href="{{ url_for('logout')}}" class="nav-link text-light"><img src="{{ url_for('static', filename='images/lock-open.svg') }}" class="logout-icon" alt="Logout">Logout</a>
                         </li>  
                         {% else %}               
                         <li class="nav-item">
