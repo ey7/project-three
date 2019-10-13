@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
     <div class="container">
         
-        <a href="/" class="navbar-brand font-weight-bold"><img src="{{ url_for('static', filename='images/home.svg') }}" class="home-icon" alt="Home icon">Flask Blog</a>
+        <a href="/" class="navbar-brand font-weight-bold"><img src="{{ url_for('static', filename='images/home.svg') }}" class="home-icon" alt="Home">Flask Blog</a>
 
         {% if title %}
             <span class="pl-3 text-light d-none d-lg-block">{{title}}</span>
@@ -15,23 +15,23 @@
                     <ul class="navbar-nav ml-auto">
                         {% if session.logged_in %}
                         <li class="nav-item">
-                            <a href="{{ url_for('blogs') }}" class="nav-link text-light"><img src="{{ url_for('static', filename='images/book-reference.svg') }}" class="blogs-icon" alt="Blogs">Blogs</a>
+                            <a href="{{ url_for('blogs') }}" class="nav-link text-light"><img src="{{ url_for('static', filename='images/book-reference.svg') }}" class="icon" alt="Blogs">Blogs</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{url_for('account', account_name=session.username)}}" class="nav-link text-light"><img src="{{ url_for('static', filename='images/user.svg') }}" class="account-icon" alt="Account">Account</a>
+                            <a href="{{url_for('account', account_name=session.username)}}" class="nav-link text-light"><img src="{{ url_for('static', filename='images/user.svg') }}" class="icon" alt="Account">Account</a>
                         </li>   
                         <li class="nav-item">
-                            <a href="{{ url_for('logout')}}" class="nav-link text-light"><img src="{{ url_for('static', filename='images/lock-open.svg') }}" class="logout-icon" alt="Logout">Logout</a>
+                            <a href="{{ url_for('logout')}}" class="nav-link text-light"><img src="{{ url_for('static', filename='images/lock-open.svg') }}" class="icon" alt="Logout">Logout</a>
                         </li>  
                         {% else %}               
                         <li class="nav-item">
-                            <a href="{{ url_for('blogs') }}" class="nav-link text-light"><img src="{{ url_for('static', filename='images/book-reference.svg') }}" class="blogs-icon" alt="Blogs">Blogs</a>
+                            <a href="{{ url_for('blogs') }}" class="nav-link text-light"><img src="{{ url_for('static', filename='images/book-reference.svg') }}" class="icon" alt="Blogs">Blogs</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url_for('login') }}" class="nav-link text-light"><img src="{{ url_for('static', filename='images/key.svg') }}" class="key-icon" alt="Login">Login</a>
+                            <a href="{{ url_for('login') }}" class="nav-link text-light"><img src="{{ url_for('static', filename='images/key.svg') }}" class="icon" alt="Login">Login</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url_for('register') }}" class="nav-link text-light"><img src="{{ url_for('static', filename='images/user-add.svg') }}" class="register-icon" alt="Login">Register</a>
+                            <a href="{{ url_for('register') }}" class="nav-link text-light"><img src="{{ url_for('static', filename='images/user-add.svg') }}" class="icon" alt="Login">Register</a>
                         </li>
                         {% endif %}
                     </ul>
