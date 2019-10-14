@@ -35,6 +35,8 @@ def login():
 	then checks to see if the username and password matches those stored
 	on the database. If yes, user is logged in. If not, user is redirected
 	"""
+	# assign error variable
+	error = None
 	#form is linked to the relevant login class
 	form = UsernamePassword()
 	# if form is validated, continue
@@ -45,12 +47,13 @@ def login():
 			if check_password_hash(username_matches['password'],request.form['password']):
 				session['username'] = request.form['username']
 				session['logged_in'] = True
-				flash('You are now logged in', 'success')
+				flash('You are now logged in', 'info')
 				return redirect(url_for('home'))
 		else:
-				flash('Login did not work. Please check username and password', 'danger')
+				error = 'Login did not work. Please check username and password'
+				
 			
-	return render_template('login.html', form=form, title='Login')
+	return render_template('login.html', form=form, error=error, title='Login')
 
 # register route for new user registration
 @app.route('/register', methods=['GET', 'POST'])
