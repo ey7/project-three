@@ -63,6 +63,8 @@ def register():
 	then checks to see if the username from form already exists in database. If not, 
 	hashes password and adds new user to database.
 	"""
+	# assign error variable
+	error = None
 	# form is linked to the relevant registration class
 	form = UsernamePasswordConfirm()
 	# if form is validated, check to find the username in database
@@ -83,9 +85,9 @@ def register():
 		 flash('Success! Your account has been created!', 'info')
 		 return redirect(url_for('home'))
 		else:
-			flash('That username is already taken. Please enter a different username', 'danger')
+			error = 'That username is already taken. Please enter a different username'
 
-	return render_template('register.html', form=form, title='Register')
+	return render_template('register.html', form=form, error=error, title='Register')
 
 # User logged in authorization function
 # Code credit: https://flask.palletsprojects.com/en/1.1.x/patterns/viewdecorators/
