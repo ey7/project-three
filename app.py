@@ -80,7 +80,7 @@ def register():
 		 session['username'] = request.form['username']
 		 # current session username is logged in and redirected to home page
 		 session['logged_in'] = True
-		 flash('Success! Your account has been created!', 'success')
+		 flash('Success! Your account has been created!', 'info')
 		 return redirect(url_for('home'))
 		else:
 			flash('That username is already taken. Please enter a different username', 'danger')
@@ -128,7 +128,7 @@ def logout():
 	"""
 	#end the session
 	session.clear()
-	flash('You are now logged out', 'success')
+	flash('You are now logged out', 'info')
 	return redirect(url_for('home'))
 
 
@@ -161,7 +161,7 @@ def add_blog():
 			'author': author,
 			'posted_on': posted_on,
 			})
-		flash('New Blog Added!', 'success')
+		flash('New Blog Added!', 'info')
 		return redirect(url_for('account', account_name=author))
 	else:
 		flash('You cannot have empty edit fields', 'danger')
@@ -231,7 +231,7 @@ def edit_blog(blog_id):
 				'posted_on': posted_on,
 				}})
 
-			flash('Success! Your blog has been updated!', 'success')
+			flash('Success! Your blog has been updated!', 'info')
 			return redirect (url_for('account', account_name=current_user))
 		else:
 			flash('Please note that you must fill in both fields', 'danger')
@@ -258,7 +258,7 @@ def delete(blog_id):
 	else:
 		#blog is deleted
 		db.blogs.delete_one({'_id': ObjectId(blog_id)})
-		flash('Success, your blog has been deleted', 'success')
+		flash('Success, your blog has been deleted', 'info')
 		return redirect(url_for('account', account_name=current_user))
 
 #SEARCH
