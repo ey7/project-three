@@ -32,3 +32,9 @@
 .navbar-brand:hover{
   filter: brightness(0.8);
 }
+
+.edit-icon {
+  width: 15px;
+   height: 15px;
+   
+}

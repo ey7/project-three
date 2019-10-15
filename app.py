@@ -144,7 +144,7 @@ def add_blog():
 	form = ContentTitleForm(request.form)
 	# get author details from username in session
 	author = session.get('username')
-	posted_on = datetime.datetime.now().strftime("%d-%B-%Y")
+	posted_on = datetime.datetime.now().strftime("%d-%b-%Y")
 
 	if request.method == 'GET':
 		# render the template with the form
@@ -206,7 +206,7 @@ def edit_blog(blog_id):
 	#  assign the current blog post
 	blog_selected = db.blogs.find_one({'_id': ObjectId(blog_id)})
 	# assign the posted_on variable
-	posted_on = datetime.datetime.now().strftime("%d-%B-%Y")
+	posted_on = datetime.datetime.now().strftime("%d-%b-%Y")
 	# assign the form to the relevant form class from form.py
 	form = ContentTitleForm()
 	# if the current username does not match that of the blog_selected author, block the edit
