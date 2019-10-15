@@ -6,7 +6,9 @@
 <h6> Search</h6>
 <form action="{{ url_for('search', search_query=search_query, current_page=current_page, results=results) }}">
                 <input type="text" class="search__input" name="search_query" placeholder="Search blogs">
-                <button class="search__button"></button>
+                <button class="btn btn-sm btn-primary">
+                	<img src="{{ url_for('static', filename='images/search.svg') }}" class="search-icon" alt="Search Blog">
+                </button>
             </form>
     <hr>
   <ul class="list-group">
