@@ -35,8 +35,6 @@ def login():
 	then checks to see if the username and password matches those stored
 	on the database. If yes, user is logged in. If not, user is redirected
 	"""
-	# assign error variable
-	error = None
 	#form is linked to the relevant login class
 	form = UsernamePassword()
 	# if form is validated, continue
@@ -49,11 +47,11 @@ def login():
 				session['logged_in'] = True
 				flash('You are now logged in', 'info')
 				return redirect(url_for('home'))
-		else:
-				error = 'Login did not work. Please check username and password'
+		else: 
+			flash('Login did not work. Please check username and password', 'danger')
 				
 			
-	return render_template('login.html', form=form, error=error, title='Login')
+	return render_template('login.html', form=form, title='Login')
 
 # register route for new user registration
 @app.route('/register', methods=['GET', 'POST'])
@@ -63,8 +61,6 @@ def register():
 	then checks to see if the username from form already exists in database. If not, 
 	hashes password and adds new user to database.
 	"""
-	# assign error variable
-	error = None
 	# form is linked to the relevant registration class
 	form = UsernamePasswordConfirm()
 	# if form is validated, check to find the username in database
@@ -84,10 +80,10 @@ def register():
 		 session['logged_in'] = True
 		 flash('Success! Your account has been created!', 'info')
 		 return redirect(url_for('home'))
-		else:
-			error = 'That username is already taken. Please enter a different username'
+		 # otherwise flash an error message
+		else: flash('That username is already taken. Please enter a different username', 'danger')
 
-	return render_template('register.html', form=form, error=error, title='Register')
+	return render_template('register.html', form=form, title='Register')
 
 # User logged in authorization function
 # Code credit: https://flask.palletsprojects.com/en/1.1.x/patterns/viewdecorators/
