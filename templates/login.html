@@ -1,11 +1,11 @@
 {% extends 'base.html' %} {% block content %}
-        <h1>Login</h1>
+        <h1 class="text-center mb-3">Login</h1>
         <!--Register Form-->
         <form method="POST" action="" class="form">
             {{ form.hidden_tag() }}
             
             <!--username field-->
-            <div class="form__group">
+            <div class="form__group text-center mb-3">
                     {% if form.username.errors %} {{ form.username(class="form-control form__input is-invalid") }}
                 <div class="invalid-feedback">
                     {% for error in form.username.errors %}
@@ -16,7 +16,7 @@
                     {% endif %}
             </div>
             <!--password field-->
-            <div class="form__group">
+            <div class="form__group text-center mb-3">
                     {% if form.password.errors %} {{ form.password(class="form-control form__input is-invalid") }}
                     <div class="invalid-feedback">
                         {% for error in form.password.errors %}
@@ -27,11 +27,11 @@
                     {% endif %}
             </div>
                 <!--submit button-->
-                <div class="form__group">
+                <div class="form__group text-center mb-3">
                     {{ form.submit(class="btn btn-primary") }}
                 </div>
                     <!-- not registered message -->
-                    <div class="py-4">Not Registered? Sign Up <a href="{{ url_for('register') }}">here.</a></div>
+                    <div class="py-4 text-center">Not Registered? Sign Up <a href="{{ url_for('register') }}">here.</a></div>
                 
         </form>
 {% endblock %}
