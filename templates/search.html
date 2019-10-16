@@ -1,10 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-<h1> Search</h1>
+<h1>Search</h1>
 <form action="{{ url_for('search', search_query=search_query, current_page=current_page, results=results) }}">
-                <input type="text" class="search__input" name="search_query" placeholder="Search blogs">
+                <input type="text" class="search__input mb-3" name="search_query" placeholder="Search blogs">
                 <button class="search__button"></button>
             </form>
          {% if results %}
@@ -12,7 +11,7 @@
 <li class="list-group-item"><a href="{{(url_for('blog',blog_id=result._id))}}">{{result.title}}</a></li>
 {% else %}
 
-<p> Sorry there are no results to display</p>
+<h6> Sorry there are no results to display</h6>
 <a href="{{(url_for('blogs'))}}">Return to Blogs</a>
 
 {% endfor %}
