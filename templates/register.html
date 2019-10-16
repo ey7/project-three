@@ -1,11 +1,11 @@
 {% extends 'base.html' %} {% block content %}
-<h1>Register</h1>
+<h1 class="text-center mb-3">Register</h1>
         <!--Register Form-->
         <form method="POST" action="" class="form">
             {{ form.hidden_tag() }}
             
             <!--Username input field-->
-            <div class="form__group">
+            <div class="form__group text-center mb-3">
                     {% if form.username.errors %} {{ form.username(class="form-control form__input is-invalid") }}
                 <div class="invalid-feedback">
                     {% for error in form.username.errors %}
@@ -16,7 +16,7 @@
                     {% endif %}
             </div>
             <!--Password Input-->
-            <div class="form__group">
+            <div class="form__group text-center mb-3">
                     {% if form.password.errors %} {{ form.password(class="form-control form__input is-invalid") }}
                     <div class="invalid-feedback">
                         {% for error in form.password.errors %}
@@ -27,7 +27,7 @@
                     {% endif %}
             </div>
             <!--Confirm Password-->
-            <div class="form__group">
+            <div class="form__group text-center mb-3">
                     {% if form.confirm_password.errors %} {{ form.confirm_password(class="form-control form__input is-invalid") }}
                     <div class="invalid-feedback">
                         {% for error in form.confirm_password.errors %}
@@ -37,11 +37,12 @@
                         {{ form.confirm_password(required=true, class="form__input", placeholder="Confirm password") }} 
                     {% endif %}
             </div>
-                <div class="py-4">Already Registered? Log in <a href="{{ url_for('login') }}">here.</a></div>
+                
                 <!--Submit Button-->
-            <div class="form__group">
+            <div class="form__group mt-3 text-center">
                     {{ form.submit(class="btn btn-primary") }}
             </div>
+            <div class="py-4 text-center">Already Registered? Log in <a href="{{ url_for('login') }}">here.</a></div>
         </form>
              
       
