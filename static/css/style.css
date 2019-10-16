@@ -5,7 +5,7 @@
   }
 
   body {
-
+    text-decoration: none;
   	font-family: 'Exo 2', sans-serif;
   }
 
@@ -50,4 +50,8 @@
 .table-header {
   background-color: #0275d8;
   color: white;
+}
+.signup-icon{
+  width: 25px;
+  height: 25px;
 }
