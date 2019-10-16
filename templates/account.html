@@ -2,17 +2,19 @@
 
 {% block content %}
   <h1><small> Welcome {{ account_name | capitalize }}</small></h1>
-  <a class="btn btn-sm btn-primary" href="{{(url_for('add_blog'))}}"><img src="{{ url_for('static', filename='images/document-add.svg') }}" class="icon" alt="Add Blog"> Add new blog</a>
-  <hr>
+  <a class="btn btn-sm btn-primary mb-3" href="{{(url_for('add_blog'))}}"><img src="{{ url_for('static', filename='images/document-add.svg') }}" class="icon" alt="Add Blog"> Add new blog</a>
+ 
   <div class="table-responsive">
   <table class="table table-sm table-striped">
-    <tr>
-      <th>Title</th>
-      <th>Author</th>
-      <th>Date Posted</th>
-      <th></th>
-      <th></th>
-    </tr>
+    <thead class="table-header">
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Date Posted</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>  
     {% for blog in current_user_blogs %}
       <tr>
         <td><a href="{{(url_for('blog', blog_id=blog._id))}}">{{ blog.title }}</a></td>
