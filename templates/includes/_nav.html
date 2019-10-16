@@ -4,9 +4,9 @@
         <a href="/" class="navbar-brand font-weight-bold"><img src="{{ url_for('static', filename='images/home.svg') }}" class="home-icon" alt="Home">Flask Blog</a>
 
         {% if title %}
-            <span class="pl-3 text-light d-none d-lg-block">{{title}}</span>
+            <span class="pl-3 text-dark d-none d-lg-block">{{title}}</span>
            {% else %}
-            <span class="pl-3 text-light d-none d-lg-block">A blog</span>
+            <span class="pl-3 text-dark d-none d-lg-block">A blog</span>
             {% endif %}
                     <button class="navbar-toggler" data-toggle="collapse" data-target="#dropdown">
                           <span class="navbar-toggler-icon"></span>
