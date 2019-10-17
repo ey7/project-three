@@ -64,3 +64,13 @@ body {
 .signup-icon:hover {
     fill: #6b7a89;
 }
+/* log in icon on register page*/
+.login-icon {
+  width: 20px;
+    height: 20px;
+    fill: #0275d8;
+    margin-left: 5px;
+}
+.login-icon:hover {
+    fill: #6b7a89;
+}
