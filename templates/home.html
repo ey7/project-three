@@ -1,6 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Welcome {{session.username}} to the home page of my latest app</h1>
-</object>
+
+  	<div class="jumbotron">
+    	<h1>Welcome {{session.username}} to the home page of my latest app</h1>
+    		 <p class="text-center">
+    		 	<a class="btn btn-sm btn-primary mt-3 text-center" href="{{(url_for('blogs'))}}"><img src="{{ url_for('static', filename='images/book-reference.svg') }}" class="icon" alt="View Blogs">View blogs</a>
+    		 </p>
+    		
+  	</div>
+  			
 {% endblock %}
