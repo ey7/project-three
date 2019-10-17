@@ -3,55 +3,64 @@
     margin: 0;
     padding: 0;
   }
-
-  body {
+body {
     text-decoration: none;
   	font-family: 'Exo 2', sans-serif;
   }
-
+/* home icon on nav bar */
 .home-icon {
 	 margin-bottom: 10px;
 	 margin-right:5px;
 	 width: 20px;
 	 height: 20px;
 }
-
 .home-icon:hover {
     filter: brightness(0.8);
 }
+/* generic icon styling on navbar */
 .icon {
-	 width: 20px;
-	 height: 20px;
-	 margin-right: 5px;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
 }
-
 .icon:hover {
-  filter: brightness(0.8);
+    filter: brightness(0.8);
 }
-
+/* nav brand class to change on hover on navbar */
 .navbar-brand:hover {
-  filter: brightness(0.8);
+    filter: brightness(0.8);
 }
-
 .edit-icon {
-  width: 15px;
-  height: 15px;
-  margin-right: 5px;
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
 }
+/* styling for search icon on blogs page */
 .search-icon {
-  width: 20px;
-  height: 20px;
+    width: 20px;
+    height: 20px;
 }
+/* register icon styling on navbar */
 .register-icon {
-  width: 25px;
-  height: 25px;
-  margin-right: 5px;
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
 }
+.register-icon: hover {
+    filter: brightness(0.8);
+}
+/* table header styling on account page */
 .table-header {
-  background-color: #0275d8;
-  color: white;
+    background-color: #0275d8;
+    color: white;
 }
+/* signup icon on login page*/
 .signup-icon{
-  width: 25px;
-  height: 25px;
+    width: 30px;
+    height: 30px;
+    fill: #0275d8;
+    margin-left: 5px;
+}
+.signup-icon:hover {
+    fill: #6b7a89;
 }
