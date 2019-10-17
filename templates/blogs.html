@@ -2,9 +2,9 @@
 
 {% block content %} 
 
-<h1>Blogs</h1>
+<h1 class="text-center">Blogs</h1>
 
-<form action="{{ url_for('search', search_query=search_query, current_page=current_page, results=results) }}">
+<form class="text-center" action="{{ url_for('search', search_query=search_query, current_page=current_page, results=results) }}">
                 <input type="text" class="search__input mb-3" name="search_query" placeholder="Search blogs">
                 <button class="btn btn-sm btn-primary">
                 	<img src="{{ url_for('static', filename='images/search.svg') }}" class="search-icon" alt="Search Blog">
