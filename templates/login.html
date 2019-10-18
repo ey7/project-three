@@ -6,24 +6,24 @@
             
             <!--username field-->
             <div class="form__group text-center mb-3">
-                    {% if form.username.errors %} {{ form.username(class=" form-input") }}
+                    {% if form.username.errors %} {{ form.username(class=" form-control") }}
                 <div class="text-danger">
                     {% for error in form.username.errors %}
                     <span>{{ error }}</span> {% endfor %}
                 </div>
                     {% else %} 
-                        {{ form.username(autofocus=true, class="form-input", required=true, placeholder=" Enter username") }} 
+                        {{ form.username(autofocus=true, class="form-control", required=true, placeholder=" Enter username") }} 
                     {% endif %}
             </div>
             <!--password field-->
             <div class="form__group text-center mb-3">
-                    {% if form.password.errors %} {{ form.password(class="form-input") }}
+                    {% if form.password.errors %} {{ form.password(class="form-control") }}
                     <div class="text-danger">
                         {% for error in form.password.errors %}
                         <span>{{ error }}</span> {% endfor %}
                     </div>
                     {% else %} 
-                        {{ form.password(required=true, class="form-input", placeholder="Enter password") }} 
+                        {{ form.password(required=true, class="form-control", placeholder="Enter password") }} 
                     {% endif %}
             </div>
                 <!--submit button-->
