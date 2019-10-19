@@ -3,7 +3,7 @@
 {% block content %}
 
   	<div class="jumbotron">
-    	<h1>Welcome {{session.username}} to the home page of my latest app</h1>
+    	<h1>Welcome {{session.username | capitalize}}</h1>
     		 <p class="text-center">
     		 	<a class="btn btn-sm btn-success mt-3 text-center" href="{{(url_for('blogs'))}}"><img src="{{ url_for('static', filename='images/book-reference.svg') }}" class="icon" alt="View Blogs">View blogs</a>
     		 </p>

@@ -155,3 +155,16 @@ body {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   margin-bottom: 40px;
 }
+/* styling for the jumbotron */
+/* code credit: https://www.kodingmadesimple.com/2015/09/twitter-bootstrap-jumbotron-background-image-responsive.html ; */
+.jumbotron{
+    background: #000 url("../images/book.jpg") no-repeat center center;
+    background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    color: #fff; 
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    margin: 40px 40px;
+}
+ 
