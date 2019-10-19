@@ -1,18 +1,25 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Search</h1>
-<form action="{{ url_for('search', search_query=search_query, current_page=current_page, results=results) }}">
+<h1 class="text-center mb-3">Search</h1>
+<form class="text-center" action="{{ url_for('search', search_query=search_query, current_page=current_page, results=results) }}">
                 <input type="text" class="search__input mb-3" name="search_query" placeholder="Search blogs">
-                <button class="search__button"></button>
+                <button class="btn btn-sm btn-success">
+                	<img src="{{ url_for('static', filename='images/search.svg') }}" class="search-icon" alt="Search Blog">
+                </button>
             </form>
          {% if results %}
 {% for result in results %}
-<li class="list-group-item"><a href="{{(url_for('blog',blog_id=result._id))}}">{{result.title}}</a></li>
+<li class="list-group-item"><a class="text-dark" href="{{(url_for('blog',blog_id=result._id))}}">{{result.title}}</a></li>
+
 {% else %}
 
-<h6> Sorry there are no results to display</h6>
-<a href="{{(url_for('blogs'))}}">Return to Blogs</a>
+<h6 class="text-center"> Sorry there are no results to display </h6>
+	<p class="text-center">
+		<a class="btn btn-sm btn-success mt-3" href="{{(url_for('blogs'))}}"><img src="{{ url_for('static', filename='images/book-reference.svg') }}" class="icon" alt="View Blogs">
+		View blogs
+		</a>
+	</p>
 
 {% endfor %}
 {% endif %}
