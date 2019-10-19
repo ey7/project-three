@@ -97,7 +97,7 @@ body {
 @media screen and (max-width: 768px) {
   .form-control {
     width: 80%;
-     margin-right: 5px;
+    margin-right: 5px;
   }
 }
 /* search button positioning on search and blogs pages */
@@ -138,9 +138,20 @@ body {
     bottom: 50px;
   }
 }
+/*styling for the background container on the single blog page */
 .blog-container {
     background-color: #fff;
     padding: 20px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     margin-top: 40px;
+}
+/* styling for the list group on the blogs page*/
+.list-group {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    margin-bottom: 40px;
+}
+/* styling for the */
+.table-responsive {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  margin-bottom: 40px;
 }

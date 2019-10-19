@@ -2,7 +2,7 @@
 
 {% block content %}
   <h1><small> Welcome {{ account_name | capitalize }}</small></h1>
-  <a class="btn btn-sm btn-success mb-3" href="{{(url_for('add_blog'))}}"><img src="{{ url_for('static', filename='images/document-add.svg') }}" class="icon" alt="Add Blog"> Add new blog</a>
+  <a class="btn btn-sm btn-success mb-4" href="{{(url_for('add_blog'))}}"><img src="{{ url_for('static', filename='images/document-add.svg') }}" class="icon" alt="Add Blog"> Add new blog</a>
  
   <div class="table-responsive">
   <table class="table mt-3 table-sm table-striped">
