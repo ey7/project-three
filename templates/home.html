@@ -3,11 +3,20 @@
 {% block content %}
 
   	<div class="jumbotron">
+  		{% if session.logged_in %}
     	<h1>Welcome {{session.username | capitalize}}</h1>
     		 <p class="text-center">
-    		 	<a class="btn btn-sm btn-success mt-3 text-center" href="{{(url_for('blogs'))}}"><img src="{{ url_for('static', filename='images/book-reference.svg') }}" class="icon" alt="View Blogs">View blogs</a>
-    		 </p>
-    		
-  	</div>
-  			
+    		 	<a class="btn btn-sm btn-success mt-3 mr-2" href="{{(url_for('blogs'))}}"><img src="{{ url_for('static', filename='images/book-reference.svg') }}" class="icon" alt="View Blogs">Blogs</a>
+    		 
+    			<a class="btn btn-sm btn-success mt-3" href="{{url_for('account', account_name=session.username)}}"><img src="{{ url_for('static', filename='images/user-add.svg') }}" class="icon" alt="Account">Account</a>
+  	 		</p>
+  	</div> 		
+  	{% else %}
+		<h1>Welcome</h1>
+    		 <p class="text-center">
+    		 	<a class="btn btn-sm btn-success mt-3 mr-2" href="{{(url_for('blogs'))}}"><img src="{{ url_for('static', filename='images/book-reference.svg') }}" class="icon" alt="View Blogs">Blogs</a>
+    		 
+    			<a class="btn btn-sm btn-success mt-3" href="{{(url_for('login'))}}"><img src="{{ url_for('static', filename='images/key.svg') }}" class="icon" alt="Login">Login</a>
+  	 		</p>
+  	 		{% endif %}
 {% endblock %}
