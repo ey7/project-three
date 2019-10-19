@@ -6,24 +6,24 @@
             
             <!--title field-->
             <div class="form__group">
-                    {% if form.title.errors %} {{ form.title(class="form-control form__input is-invalid") }}
-                <div class="invalid-feedback">
+                    {% if form.title.errors %} {{ form.title(class="form-control") }}
+                <div class="text-danger">
                     {% for error in form.title.errors %}
                     <span>{{ error }}</span> {% endfor %}
                 </div>
                     {% else %} 
-                        {{ form.title(autofocus=true, class="form__input mb-3", required=true, placeholder=" Enter title") }} 
+                        {{ form.title(autofocus=true, class="form-control mb-3", required=true, placeholder=" Enter title") }} 
                     {% endif %}
             </div>
             <!-- content field-->
             <div class="form__group">
-                    {% if form.content.errors %} {{ form.content(class="form-control form__input is-invalid") }}
-                    <div class="invalid-feedback">
+                    {% if form.content.errors %} {{ form.content(class="form-control") }}
+                    <div class="text-danger">
                         {% for error in form.content.errors %}
                         <span>{{ error }}</span> {% endfor %}
                     </div>
                     {% else %} 
-                        {{ form.content(required=true, class="form__input", id="editor", placeholder="Enter blog content") }} 
+                        {{ form.content(required=true, class="form-control", id="editor", placeholder="Enter blog content") }} 
                     {% endif %}
             </div>
             <div class="form__group mt-3">
