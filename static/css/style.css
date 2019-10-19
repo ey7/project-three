@@ -3,11 +3,13 @@
     margin: 0;
     padding: 0;
   }
+
 body {
     text-decoration: none;
   	font-family: 'Exo 2', sans-serif;
     background-color: #f8f8ff;
   }
+
 /* home icon on nav bar */
 .home-icon {
 	 margin-bottom: 10px;
@@ -15,45 +17,55 @@ body {
 	 width: 20px;
 	 height: 20px;
 }
+
 .home-icon:hover {
     filter: brightness(0.8);
 }
+
 /* generic icon styling on navbar */
 .icon {
     width: 20px;
     height: 20px;
     margin-right: 5px;
 }
+
 .icon:hover {
     filter: brightness(0.8);
 }
+
 /* nav brand class to change on hover on navbar */
 .navbar-brand:hover {
     filter: brightness(0.8);
 }
+
 .edit-icon {
     width: 15px;
     height: 15px;
     margin-right: 5px;
 }
+
 /* styling for search icon on blogs and search page */
 .search-icon {
     width: 20px;
     height: 20px;
 }
+
 /* register icon styling on navbar */
 .register-icon {
     width: 25px;
     height: 25px;
     margin-right: 5px;
 }
+
 .register-icon:hover {
     filter: brightness(0.8);
 }
+
 /* table header styling on account page */
 .table-header {
     color: white;
 }
+
 /* signup icon on login page*/
 .signup-icon{
     width: 30px;
@@ -61,9 +73,11 @@ body {
     fill: #5cb85c ;
     margin-left: 5px;
 }
+
 .signup-icon:hover {
     fill: #6b7a89;
 }
+
 /* log in icon on register page*/
 .login-icon {
     width: 20px;
@@ -71,23 +85,28 @@ body {
     fill: #5cb85c ;
     margin-left: 5px;
 }
+
 .login-icon:hover {
     fill: #6b7a89;
 }
+/* styling for BS form control class on register, login and search pages */
 .form-control {
-  width: 50%;
+  width: 50%; /* 50% width on larger screens */
 }
+
 @media screen and (max-width: 768px) {
   .form-control {
     width: 80%;
+     margin-right: 5px;
   }
 }
-
-.search-button{
+/* search button positioning on search and blogs pages */
+.search-button {
   position: relative;
   left: 40px;
   bottom: 50px;
 }
+/* media queries for search button position on different screen sizes */
 @media screen and (max-width: 768px) {
   .search-button {
     position: relative;
@@ -95,6 +114,7 @@ body {
     bottom: 50px;
   }
 }
+
 @media screen and (max-width: 500px) {
   .search-button {
     position: relative;
@@ -102,6 +122,7 @@ body {
     bottom: 50px;
   }
 }
+
 @media screen and (max-width: 374px) {
   .search-button {
     position: relative;
@@ -109,6 +130,7 @@ body {
     bottom: 50px;
   }
 }
+
 @media screen and (max-width: 320px) {
   .search-button {
     position: relative;

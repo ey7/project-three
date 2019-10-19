@@ -2,7 +2,7 @@
 
 {% block content %} 
 
-<h1 class="text-center">Blogs</h1>
+<h1>Blogs</h1>
 
 <form class="text-center" action="{{ url_for('search', search_query=search_query, current_page=current_page, results=results) }}">
                 <input type="text" class="form-control mb-3" name="search_query" placeholder="Search blogs">
