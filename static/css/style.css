@@ -58,7 +58,7 @@ body {
 .signup-icon{
     width: 30px;
     height: 30px;
-    fill: #0275d8;
+    fill: #5cb85c ;
     margin-left: 5px;
 }
 .signup-icon:hover {
@@ -68,7 +68,7 @@ body {
 .login-icon {
   width: 20px;
     height: 20px;
-    fill: #0275d8;
+    fill: #5cb85c ;
     margin-left: 5px;
 }
 .login-icon:hover {
