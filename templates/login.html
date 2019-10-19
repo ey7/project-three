@@ -1,12 +1,13 @@
 {% extends 'base.html' %} {% block content %}
-        <h1 class="text-center mb-3">Login</h1>
+    <div class="form-container">
+        <h1 class="mb-3">Login</h1>
         <!--Register Form-->
         <form method="POST" action="" class="form">
             {{ form.hidden_tag() }}
             
             <!--username field-->
-            <div class="form__group text-center mb-3">
-                    {% if form.username.errors %} {{ form.username(class=" form-control") }}
+            <div class="form__group mb-3">
+                    {% if form.username.errors %} {{ form.username(class="form-control") }}
                 <div class="text-danger">
                     {% for error in form.username.errors %}
                     <span>{{ error }}</span> {% endfor %}
@@ -16,7 +17,7 @@
                     {% endif %}
             </div>
             <!--password field-->
-            <div class="form__group text-center mb-3">
+            <div class="form__group mb-3">
                     {% if form.password.errors %} {{ form.password(class="form-control") }}
                     <div class="text-danger">
                         {% for error in form.password.errors %}
@@ -27,17 +28,17 @@
                     {% endif %}
             </div>
                 <!--submit button-->
-                <div class="form__group text-center mb-2">
+                <div class="form__group mb-2">
                     {{ form.submit(class="btn btn-success mb-3") }}
                 </div>
                     <!-- not registered message -->
-                    <div class="text-center">Not Registered? <br> Sign Up 
+                    <div>Not Registered? <br> Sign Up 
                         <a href="{{ url_for('register') }}">
                             <svg xmlns="http://www.w3.org/2000/svg" class="signup-icon" viewBox="0 0 20 20">
                                 <path d="M2 6H0v2h2v2h2V8h2V6H4V4H2v2zm7 0a3 3 0 0 1 6 0v2a3 3 0 0 1-6 0V6zm11 9.14A15.93 15.93 0 0 0 12 13c-2.91 0-5.65.78-8 2.14V18h16v-2.86z"/>
                             </svg>
                         </a>
-                    </div>
-                
+                    </div>     
         </form>
+    </div> <!-- end of form-container -->  
 {% endblock %}
