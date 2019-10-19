@@ -4,7 +4,7 @@ Code credit: https://flask.palletsprojects.com/en/1.1.x/patterns/flashing/ -->
 	{% with info = get_flashed_messages(category_filter=["info"]) %}
  		 {% if info %}
     		{%- for message in info %}
-     			 <div class="alert alert-info"><img src="{{ url_for('static', filename='images/checkmark-outline.svg') }}" class="icon" alt="info message">{{ message }}</div>
+     			 <div class="alert alert-success"><img src="{{ url_for('static', filename='images/checkmark-outline.svg') }}" class="icon" alt="info message">{{ message }}</div>
     		{% endfor -%}
   		{% endif %}
 	{% endwith %}
@@ -12,7 +12,7 @@ Code credit: https://flask.palletsprojects.com/en/1.1.x/patterns/flashing/ -->
 	{% with danger = get_flashed_messages(category_filter=["danger"]) %}
  		 {% if danger %}
     		{%- for message in danger %}
-     			 <div class="alert alert-danger"><img src="{{ url_for('static', filename='images/exclamation-outline.svg') }}" class="icon" alt="danger message">{{ message }}</div>
+     			 <div class="alert alert-warning"><img src="{{ url_for('static', filename='images/exclamation-outline.svg') }}" class="icon" alt="warning message">{{ message }}</div>
     		{% endfor -%}
   		{% endif %}
 	{% endwith %}

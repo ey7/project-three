@@ -6,7 +6,7 @@
 body {
     text-decoration: none;
   	font-family: 'Exo 2', sans-serif;
-    background-color: #f2f2f2;
+    background-color: #f8f8ff;
   }
 /* home icon on nav bar */
 .home-icon {
@@ -52,7 +52,6 @@ body {
 }
 /* table header styling on account page */
 .table-header {
-    background-color: #0275d8;
     color: white;
 }
 /* signup icon on login page*/
