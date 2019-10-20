@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1><strong>Oops!</strong> a server error has occurred</h1>
+    	<p> Do you want to go home? </p>
+    		<a class="btn btn-sm btn-success" href="{{(url_for('home'))}}"><img src="{{ url_for('static', filename='images/home.svg') }}" class="icon" alt="Return home">Home
+    		</a>
+   
+{% endblock %}
