@@ -2,6 +2,11 @@
 
 {% block content %}
   <h1><small> Welcome {{ account_name | capitalize }}</small></h1>
+  {% if count %}
+  <p> You have {{count}} blogs</p>
+  {% else %}
+  <p> You have no blogs created</p>
+  {% endif %}
   <a class="btn btn-sm btn-success mb-4" href="{{(url_for('add_blog'))}}"><img src="{{ url_for('static', filename='images/document-add.svg') }}" class="icon" alt="Add Blog"> Add new blog</a>
  
   <div class="table-responsive">
