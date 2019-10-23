@@ -167,10 +167,15 @@ body {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     margin: 40px 40px;
 }
-
+/* black search icon that will appear in search bar on blogs and search page */
+/* code credit: https://www.w3schools.com/css/css_form.asp */
 .form-search {
   background-image: url('../images/search1.svg');
   background-position: 10px 10px;
   background-repeat: no-repeat;
   padding-left: 40px;
+}
+
+.hidden {
+  display: none;
 }
