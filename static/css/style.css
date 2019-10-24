@@ -9,6 +9,10 @@ body {
   	font-family: 'Exo 2', sans-serif;
     background-color: #f8f8ff;
 }
+ /* default h1 font size for smaller screens */
+h1 {
+    font-size: 1.8rem;
+}
 
 /* home icon on nav bar */
 .home-icon {
@@ -192,4 +196,36 @@ body {
 /* styling for the delete modal button */
 #delete-confirm {
     margin-right: 20px; 
+}
+
+/* ------------------media queries ------------------- */
+
+/* medium screens and up */
+@media screen and (min-width: 768px) {
+    html {
+      font-size: 1.05rem;
+  }
+    h1 {
+      font-size: 2rem;
+  }
+}
+
+/* large screens and up */
+@media screen and (min-width: 992px) {
+    html {
+      font-size: 1.1rem;
+  }
+    h1 {
+      font-size: 2.2rem;
+  }
+}
+
+/*  extra large screens and up */
+@media screen and (min-width: 1200px) {
+    html {
+      font-size: 1.2rem;
+  }
+    h1 {
+      font-size: 2.5rem;
+  }
 }
