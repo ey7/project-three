@@ -46,12 +46,6 @@ h2 {
     filter: brightness(0.8);
 }
 
-.edit-icon {
-    width: 15px;
-    height: 15px;
-    margin-right: 5px;
-}
-
 /* styling for search icon on blogs and search page */
 .search-icon {
     width: 20px;
@@ -172,11 +166,12 @@ h2 {
 .account-margin {
     margin-bottom: 25px;
 }
-
+/* sets the size and position of flash alert */
 .alert {
     max-width: 500px;
     margin: auto;
 }
+
 /* search button positioning on search and blogs pages */
 .search-button {
     position: relative;
