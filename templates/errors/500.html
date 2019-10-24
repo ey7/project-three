@@ -3,7 +3,7 @@
 {% block content %}
 
     <h1><strong>Oops!</strong> a server error has occurred</h1>
-    	<p> Do you want to go home? </p>
+    	<h2 class="error-margin"> Do you want to go home? </h2>
     		<a class="btn btn-sm btn-success" href="{{(url_for('home'))}}">
     			<img src="{{ url_for('static', filename='images/home.svg') }}" class="icon" alt="Return home">Home
     		</a>

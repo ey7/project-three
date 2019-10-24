@@ -2,8 +2,8 @@
 
 {% block content %}
 
-    <h1 class="mb-2"><strong>Oops!</strong> That page cannot be found</h1>
-    	<p> Do you want to go home?</p>
+    <h1><strong>Oops!</strong> that page cannot be found</h1>
+    	<h2 class="error-margin"> Do you want to go home?</h2>
     		<a class="btn btn-sm btn-success" href="{{(url_for('home'))}}">
     			<img src="{{ url_for('static', filename='images/home.svg') }}" class="icon" alt="Return home">Home
     		</a>

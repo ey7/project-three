@@ -13,7 +13,7 @@ body {
 h1 {
     font-size: 1.8rem;
 }
-
+/* default h2 font size for smaller screens */
 h2 {
     font-size: 1.1rem;
 }
@@ -110,45 +110,7 @@ h2 {
   }
 }
 
-/* search button positioning on search and blogs pages */
-.search-button {
-    position: relative;
-    left: 40px;
-    bottom: 50px;
-}
 
-/* media queries for search button position on different screen sizes */
-@media screen and (max-width: 768px) {
-  .search-button {
-      position: relative;
-      left: 180px;
-      bottom: 50px;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .search-button {
-      position: relative;
-      left: 160px;
-      bottom: 50px;
-  }
-}
-
-@media screen and (max-width: 374px) {
-  .search-button {
-    position: relative;
-    left: 120px;
-    bottom: 50px;
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .search-button {
-      position: relative;
-      left: 100px;
-      bottom: 50px;
-  }
-}
 
 /*styling for the background container on the single blog page */
 .blog-container {
@@ -202,7 +164,52 @@ h2 {
     margin-right: 20px; 
 }
 
-/* ------------------media queries ------------------- */
+/*  custom margins for the paragraph on the error html pages */
+.error-margin {
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+/* search button positioning on search and blogs pages */
+.search-button {
+    position: relative;
+    left: 40px;
+    bottom: 50px;
+}
+
+/* media queries for search button position on different screen sizes */
+@media screen and (max-width: 768px) {
+  .search-button {
+      position: relative;
+      left: 180px;
+      bottom: 50px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .search-button {
+      position: relative;
+      left: 160px;
+      bottom: 50px;
+  }
+}
+
+@media screen and (max-width: 374px) {
+  .search-button {
+    position: relative;
+    left: 120px;
+    bottom: 50px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .search-button {
+      position: relative;
+      left: 100px;
+      bottom: 50px;
+  }
+}
+
+/* ------------------ general media queries ------------------- */
 
 /* medium screens and up */
 @media screen and (min-width: 768px) {
