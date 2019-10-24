@@ -172,6 +172,10 @@ h2 {
 .account-margin {
     margin-bottom: 25px;
 }
+
+.alert {
+    width: 80%;
+}
 /* search button positioning on search and blogs pages */
 .search-button {
     position: relative;
@@ -217,13 +221,16 @@ h2 {
 /* medium screens and up */
 @media screen and (min-width: 768px) {
     html {
-      font-size: 1.05rem;
+        font-size: 1.05rem;
   }
     h1 {
-      font-size: 2rem;
+        font-size: 2rem;
   }
-    h2{
-      font-size: 1.2rem;
+    h2 {
+        font-size: 1.2rem;
+    }
+      .alert {
+        width: 50%;
     }
 }
 
