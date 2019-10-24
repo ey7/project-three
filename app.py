@@ -95,7 +95,7 @@ def authorized(f):
         if 'logged_in' in session:
             return f(*args, **kwargs)
         else:
-            flash('You must be logged in to view this page', 'danger')
+            flash('You must be logged in to acccess this page', 'danger')
             return redirect(url_for('login'))
     return wrap
 
