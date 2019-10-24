@@ -8,7 +8,7 @@
     		 <p class="text-center">
     		 	<a class="btn btn-sm btn-success mt-3 mr-2" href="{{(url_for('blogs'))}}"><img src="{{ url_for('static', filename='images/book-reference.svg') }}" class="icon" alt="View Blogs">Blogs</a>
     		 
-    			<a class="btn btn-sm btn-success mt-3" href="{{url_for('account', account_name=session.username)}}"><img src="{{ url_for('static', filename='images/user-add.svg') }}" class="icon" alt="Account">Account</a>
+    			<a class="btn btn-sm btn-success mt-3" href="{{url_for('account', account_name=session.username)}}"><img src="{{ url_for('static', filename='images/user.svg') }}" class="icon" alt="Account">Account</a>
   	 		</p>
   	</div> 		
   	 {% else %}
@@ -19,5 +19,5 @@
     			<a class="btn btn-sm btn-success mt-3" href="{{(url_for('login'))}}"><img src="{{ url_for('static', filename='images/key.svg') }}" class="icon" alt="Login">Login</a>
   	 		</p>
   	 	{% endif %}
-      
+
 {% endblock %}
