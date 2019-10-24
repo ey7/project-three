@@ -1,4 +1,7 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
+
+{% block content %}
+
         <h1>Edit your blog</h1>
         <!--Register Form-->
         <form method="POST" action="" class="form">
@@ -15,6 +18,7 @@
                         {{ form.title(autofocus=true, class="form-control mb-3", required=true, placeholder=" Enter title") }} 
                     {% endif %}
             </div>
+
             <!-- content field-->
             <div class="form__group">
                     {% if form.content.errors %} {{ form.content(class="form-control") }}
@@ -26,8 +30,10 @@
                         {{ form.content(required=true, class="form-control", id="editor", placeholder="Enter blog content") }} 
                     {% endif %}
             </div>
+            <!-- submit button -->
             <div class="form__group mt-3">
                     {{ form.submit(class="btn btn-sm btn-success") }}
             </div>
         </form>
+
 {% endblock %}

@@ -1,5 +1,8 @@
-{% extends 'base.html' %} {% block content %}
-<h1 class="mb-3">Register</h1>
+{% extends 'base.html' %} 
+
+{% block content %}
+
+    <h1 class="mb-3">Register</h1>
         <!--Register Form-->
         <form method="POST" action="" class="form">
             {{ form.hidden_tag() }}
@@ -15,6 +18,7 @@
                         {{ form.username(autofocus=true, class="form-control", required=true, placeholder="New username") }} 
                     {% endif %}
             </div>
+
             <!--Password Input-->
             <div class="form-group mb-3">
                     {% if form.password.errors %} {{ form.password(class="form-control") }}
@@ -26,6 +30,7 @@
                         {{ form.password(required=true, class="form-control", placeholder="Enter password") }} 
                     {% endif %}
             </div>
+
             <!--Confirm Password-->
             <div class="form-group mb-3">
                     {% if form.confirm_password.errors %} {{ form.confirm_password(class="form-control") }}
@@ -42,17 +47,15 @@
             <div class="form-group mt-3 mb-2">
                     {{ form.submit(class="btn btn-success mb-3") }}
             </div>
-                    <!-- not registered message -->
-                    <div>Already Registered? <br> Log in 
-                        <a href="{{ url_for('login') }}">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="login-icon" viewBox="0 0 20 20">
-                                <path d="M12.26 11.74L10 14H8v2H6v2l-2 2H0v-4l8.26-8.26a6 6 0 1 1 4 4zm4.86-4.62A3 3 0 0 0 15 2a3 3 0 0 0-2.12.88l4.24 4.24z"/>
-                            </svg>
-                        </a>
-                    </div>
+            
+                <!-- not registered message -->
+                <div>Already Registered? <br> Log in 
+                    <a href="{{ url_for('login') }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="login-icon" viewBox="0 0 20 20">
+                            <path d="M12.26 11.74L10 14H8v2H6v2l-2 2H0v-4l8.26-8.26a6 6 0 1 1 4 4zm4.86-4.62A3 3 0 0 0 15 2a3 3 0 0 0-2.12.88l4.24 4.24z"/>
+                        </svg>
+                    </a>
+                </div>
         </form>
-             
-      
-
 
 {% endblock %}
