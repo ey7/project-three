@@ -174,7 +174,8 @@ h2 {
 }
 
 .alert {
-    width: 80%;
+    max-width: 500px;
+    margin: auto;
 }
 /* search button positioning on search and blogs pages */
 .search-button {
@@ -228,9 +229,6 @@ h2 {
   }
     h2 {
         font-size: 1.2rem;
-    }
-      .alert {
-        width: 50%;
     }
 }
 
