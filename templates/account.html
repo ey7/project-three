@@ -22,7 +22,7 @@
     </thead>  
     {% for blog in current_user_blogs %}
     {% raw %}
-    <!-- Modal -->
+    <!-- Delete Modal -->
   <div class="modal fade hidden" id="deleteModal" role="dialog">
     <div class="modal-dialog">
     
@@ -33,12 +33,12 @@
           <button type="button" class="close" data-dismiss="modal">x</button>  
         </div>
         <div class="modal-body">
-          <p>Are you sure you want to delete?</p>
-          <a class="btn btn-sm btn-warning" id="delete-confirm" href="#">Delete</a>
-          <button type="button" class="btn btn-sm btn-success" data-dismiss="modal">Cancel</button>
+          <p class="text-center">Are you sure you want to delete?</p>
+          <p class="text-center"><a class="btn btn-sm btn-warning" id="delete-confirm" href="#">Delete</a>
+              <button type="button" class="btn btn-sm btn-success" data-dismiss="modal">Cancel</button>
+          </p>
         </div>
       </div>
-      
     </div>
   </div>
   {% endraw %}
