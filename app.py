@@ -35,6 +35,9 @@ def login():
 	then checks to see if the username and password matches those stored
 	on the database. If yes, user is logged in. If not, user is redirected
 	"""
+	if 'logged_in' in session:
+		flash ('You are already logged in', 'danger')
+		return redirect(url_for('home'))
 	#form is linked to the relevant login class
 	form = UsernamePassword()
 	# if form is validated, continue
