@@ -108,7 +108,7 @@ def account(account_name):
 		# assigns the current user
 		current_user = db.users.find_one({'username': account_name })
 		# assigns the current_users blogs
-		current_user_blogs = db.blogs.find({'author': account_name}).sort([('title', 1)])
+		current_user_blogs = db.blogs.find({'author': account_name}).sort([('title', -1)])
 		# get the count of the user's blogs
 		count = db.blogs.find({'author': account_name }).count()
 		#return the acccount template
