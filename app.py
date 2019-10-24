@@ -92,7 +92,7 @@ def authorized(f):
         if 'logged_in' in session:
             return f(*args, **kwargs)
         else:
-            flash('You must be logged in to view this page, please login first', 'danger')
+            flash('You must be logged in to view this page', 'danger')
             return redirect(url_for('login'))
     return wrap
 
@@ -102,7 +102,7 @@ def authorized(f):
 def account(account_name):
 	# if account name is not equal to username in session, deny access
 	if account_name != session.get('username'):
-		flash('Access denied, you are not the owner of this account', 'danger')
+		flash('Access denied, you are not the account owner', 'danger')
 		return redirect(url_for('home'))
 	else:
 		# assigns the current user
@@ -211,7 +211,7 @@ def edit_blog(blog_id):
 	form = ContentTitleForm()
 	# if the current username does not match that of the blog_selected author, block the edit
 	if current_user != blog_selected['author']:
-		flash('Sorry you must be the author to edit this blog', 'danger')
+		flash('Sorry only the author can edit this blog', 'danger')
 		return redirect (url_for('blog', blog_id=blog_id))
 	else:
 		# fill the form with the selected data
