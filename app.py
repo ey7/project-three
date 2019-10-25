@@ -34,6 +34,7 @@ def login():
 	then checks to see if the username and password matches those stored
 	on the database. If yes, user is logged in. If not, user is redirected
 	"""
+	# if user is already logged in, flash a message and redirect to home
 	if 'logged_in' in session:
 		flash ('You are already logged in', 'danger')
 		return redirect(url_for('home'))
