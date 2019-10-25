@@ -17,7 +17,7 @@
             <!-- Zero Results -->
                 {% if results_count == 0 %}
             <h2 class="pb-3">Sorry no results found</h2>
-
+				<a class="btn btn-sm btn-success mt-3" href="{{(url_for('blogs'))}}"><img src="{{ url_for('static', filename='images/book-reference.svg') }}" class="icon" alt="Go Back">Go Back</a>
             <!-- 1 Result Found -->
                 {% elif results_count == 1 %}
             <h2 class="pb-3">Your search for "
@@ -41,11 +41,6 @@
 		{% for result in results %}
 			<li class="list-group-item"><a class="text-dark" href="{{(url_for('blog',blog_id=result._id))}}">{{result.title}}</a></li>
 		
-		{% else %}
-
-			<h2><strong>Sorry no results found</strong></h2>
-				<a class="btn btn-sm btn-success mt-3" href="{{(url_for('blogs'))}}"><img src="{{ url_for('static', filename='images/book-reference.svg') }}" class="icon" alt="Go Back">Go Back</a>
-
 		{% endfor %}
 		{% endif %}
 		</div> <!-- end of results section -->
