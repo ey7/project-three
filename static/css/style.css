@@ -183,10 +183,20 @@ h2 {
     color: #28a745;
 }
 
-/* search button on search and blogs pages */
-.search-button {
-    margin-top: 10px;
+/* searchbox on blogs and search pages */
+/* code credit: https://www.w3schools.com/howto/howto_css_inline_form.asp; */
+.searchbox {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    margin-bottom: 20px;
 }
+/* searchbox button on search and blogs pages */
+.searchbox button {
+    margin-left: 5px
+}
+
+
 
 /* ------------------ general media queries ------------------- */
 
