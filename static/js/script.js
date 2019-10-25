@@ -7,3 +7,23 @@ $('#delete-button').click(function () {
     
     return;
 });
+
+ // Shows loader and hides page content until everything is loaded
+
+$(document).ready(function() {
+    hideLoading();
+});
+
+ // Displays loader
+
+function showLoading() {
+    $("#loader").css("visibility", "visible");
+    return;
+}
+
+// Hides loader
+ 
+function hideLoading() {
+    $("#loader").css("visibility", "hidden");
+    return;
+}
