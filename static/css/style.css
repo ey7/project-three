@@ -172,7 +172,7 @@ h2 {
     margin: auto;
 }
 
-/* sets primary green colour to the bootstrap pagintion */
+/* sets primary green colour to the bootstrap pagination */
 .page-item.active .page-link {
     background-color: #28a745;
     border-color: #28a745; 
@@ -183,44 +183,9 @@ h2 {
     color: #28a745;
 }
 
-/* search button positioning on search and blogs pages */
+/* search button on search and blogs pages */
 .search-button {
-    position: relative;
-    left: 40px;
-    bottom: 50px;
-}
-
-/* media queries for search button position on different screen sizes */
-@media screen and (max-width: 768px) {
-  .search-button {
-      position: relative;
-      left: 180px;
-      bottom: 50px;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .search-button {
-      position: relative;
-      left: 160px;
-      bottom: 50px;
-  }
-}
-
-@media screen and (max-width: 374px) {
-  .search-button {
-    position: relative;
-    left: 120px;
-    bottom: 50px;
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .search-button {
-      position: relative;
-      left: 100px;
-      bottom: 50px;
-  }
+    margin-top: 10px;
 }
 
 /* ------------------ general media queries ------------------- */

@@ -2,21 +2,22 @@
 
 {% block content %}
 
-		<h1 class="mb-3">Search</h1>
+		<h1 class="mb-2">Search</h1>
 			<!-- search form -->
-			<form class="text-center" action="{{ url_for('search', search_query=search_query, current_page=current_page, results=results) }}">
-                <input type="text" class="form-control form-search" name="search_query" placeholder="Search blogs">
-                	<button class="btn btn-sm search-button btn-success">
+			<form action="{{ url_for('search', search_query=search_query, current_page=current_page, results=results) }}">
+                <input type="text" class="form-control form-search" name="search_query" placeholder="Search blogs">	
+            </form>
+            	<!-- search button -->
+            	<button class="btn btn-sm search-button btn-success">
                 	<img src="{{ url_for('static', filename='images/search.svg') }}" class="search-icon" alt="Search Blog">
                 </button>
-            </form>
 
 			<!-- Search Results Count -->
 			<div>
             {% if search_query %}
             <!-- Zero Results -->
                 {% if results_count == 0 %}
-            <h2 class="pb-3">Sorry no results found</h2>
+            <h2>Sorry no results found</h2>
 				<a class="btn btn-sm btn-success mt-3" href="{{(url_for('blogs'))}}"><img src="{{ url_for('static', filename='images/book-reference.svg') }}" class="icon" alt="Go Back">Go Back</a>
             <!-- 1 Result Found -->
                 {% elif results_count == 1 %}
