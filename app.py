@@ -283,7 +283,7 @@ def search():
 	
 	# search results will be sorted by id
 	results = db.blogs.find({'$text': {'$search': str(search_query)}},
-		{'score': {'$meta': 'textScore'}}).sort('_id', pymongo.ASCENDING).skip((current_page -1 )*page_limit).limit(page_limit)
+		{'score': {'$meta': 'textScore'}}).sort('_id', pymongo.DESCENDING).skip((current_page -1 )*page_limit).limit(page_limit)
 	# code for pagination of search results
 	results_count = db.blogs.find({'$text': {'$search': str(search_query)}}).count()
 	results_pages = range(1, int(math.ceil(results_count / page_limit)) + 1)
