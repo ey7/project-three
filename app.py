@@ -12,7 +12,6 @@ app = Flask(__name__)
 
 # connection to mongoDB and set database variable called db
 client = MongoClient(Config.MONGO_URI)
-print("Mongo is connected!")
 db = client.flaskBlog
 app.secret_key = os.getenv("SECRET_KEY")
 
