@@ -172,6 +172,17 @@ h2 {
     margin: auto;
 }
 
+/* sets primary green colour to the bootstrap pagintion */
+.page-item.active .page-link {
+    background-color: #28a745;
+    border-color: #28a745; 
+}
+
+/* adds primary green colour to pagination items and links */
+.page-item .page-link {
+    color: #28a745;
+}
+
 /* search button positioning on search and blogs pages */
 .search-button {
     position: relative;

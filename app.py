@@ -172,11 +172,16 @@ def add_blog():
 @app.route('/blogs')
 def blogs():
     """
-    Displays all blogs, starting with the most recent.
+    Displays all blogs, with pagination to limit the no of entries on the page.
     """
-    blogs = db.blogs.find().sort('_id', pymongo.DESCENDING)
+    page_limit = 5
+    current_page = int(request.args.get('current_page', 1))
+    total = db.blogs.count()
+    pages = range(1, int(math.ceil(total / page_limit)) + 1)
+    blogs = db.blogs.find().sort('_id', pymongo.DESCENDING).skip(
+    	(current_page - 1)*page_limit).limit(page_limit)
 
-    return render_template('blogs.html', blogs=blogs, title='Blogs')
+    return render_template('blogs.html', blogs=blogs, title='Blogs', pages=pages, current_page=current_page)
 
 # Read and display one blog
 @app.route('/blog/<blog_id>')
