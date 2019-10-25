@@ -278,16 +278,25 @@ def search():
 	search_query = request.args.get('search_query')
 	# assign the page variable
 	current_page = int(request.args.get('current_page', 1))
-	per_page = 5
+	#assign the page limit variable
+	page_limit = 5
+	
 	# search results will be sorted by id
 	results = db.blogs.find({'$text': {'$search': str(search_query)}},
-		{'score': {'$meta': 'textScore'}}).sort('_id', pymongo.ASCENDING).skip((current_page -1 )*per_page).limit(per_page)
+		{'score': {'$meta': 'textScore'}}).sort('_id', pymongo.ASCENDING).skip((current_page -1 )*page_limit).limit(page_limit)
+	# code for pagination of search results
+	results_count = db.blogs.find({'$text': {'$search': str(search_query)}}).count()
+	results_pages = range(1, int(math.ceil(results_count / page_limit)) + 1)
+	total_pages = int(math.ceil(results_count / page_limit))
+
 
 	return render_template('search.html',
 	current_page=current_page,
-	per_page=per_page,
+	results_count=results_count,
+	total_pages=total_pages,
 	search_query=search_query,
 	results=results,
+	results_pages=results_pages,
 	title='Search'
 	)
 
