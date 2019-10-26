@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, TextAreaField
-from wtforms.validators import DataRequired, Length, EqualTo
+from wtforms.validators import DataRequired, Length, EqualTo, Optional
 
 #  class for registration form
 class UsernamePasswordConfirm(FlaskForm):
@@ -27,4 +27,5 @@ class ContentTitleForm(FlaskForm):
         Length(min=1, max=150)])
     content = TextAreaField('Content', validators=[DataRequired(),
         Length(min=1)])
+    image = StringField('Blog Image', validators=[Optional()])
     submit = SubmitField('Add new blog')

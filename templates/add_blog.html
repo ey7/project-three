@@ -30,6 +30,17 @@
                     {% endif %}
             </div>
             
+            <!-- image field-->
+            <div class="form__group">
+                    {% if form.image.errors %} {{ form.image(class="form-control") }}
+                    <div class="text-danger">
+                        {% for error in form.image.errors %}
+                        <span>{{ error }}</span> {% endfor %}
+                    </div>
+                    {% else %} 
+                        {{ form.image( class="form-control", id="image-form-add", placeholder="Enter image url (optional)") }} 
+                    {% endif %}
+            </div>
             <!-- submit button -->
             <div class="form__group mt-3">
                     {{ form.submit(class="btn btn-sm btn-success") }}

@@ -158,6 +158,7 @@ def add_blog():
 		blog = db.blogs.insert_one({
 			'title': request.form['title'],
 			'content': request.form['content'],
+			'image' : request.form['image'],
 			'author': author,
 			'posted_on': posted_on,
 			})
@@ -232,6 +233,7 @@ def edit_blog(blog_id):
 			blog = db.blogs.update_one({'_id': ObjectId(blog_id)}, {'$set': {
 				'title': request.form['title'],
 				'content': request.form['content'],
+				'image' : request.form['image'],
 				'author': current_user,
 				'posted_on': posted_on,
 				}})

@@ -197,6 +197,11 @@ h2 {
     margin-left: 5px
 }
 
+#image-form-edit, #image-form-add {
+    margin-top: 20px;
+
+}
+
 /* ------------------ general media queries ------------------- */
 
 /* medium screens and up */
