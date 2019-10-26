@@ -26,5 +26,5 @@ class ContentTitleForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired(),
         Length(min=1, max=150)])
     content = TextAreaField('Content', validators=[DataRequired(),
-        Length(min=50)])
+        Length(min=1)])
     submit = SubmitField('Add new blog')
