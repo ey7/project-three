@@ -164,7 +164,7 @@ def add_blog():
 		flash('New Blog Added!', 'info')
 		return redirect(url_for('account', account_name=author))
 	else:
-		flash('You cannot have empty edit fields', 'danger')
+		flash('Empty title or content fields are not allowed', 'danger')
 		return redirect(url_for('account', account_name=author))	
 
 #READ
@@ -239,7 +239,7 @@ def edit_blog(blog_id):
 			flash('Success! Your blog has been updated!', 'info')
 			return redirect (url_for('account', account_name=current_user))
 		else:
-			flash('Please note that you must fill in both fields', 'danger')
+			flash('Empty title or content fields are not allowed', 'danger')
 			return render_template('edit_blog.html', blog=blog_selected, form=form, title='Edit Blog')
 
 #DELETE
