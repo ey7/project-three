@@ -17,7 +17,7 @@
   <ul class="list-group mt-3">
 
     {% for blog in blogs %}
-      <li class="list-group-item"><a class="text-dark" href="{{(url_for('blog',blog_id=blog._id))}}">{{blog.title | capitalize}}</a></li>
+      <li class="list-group-item"><a class="text-dark" href="{{(url_for('blog',blog_id=blog._id))}}">{{blog.title}}</a></li>
       
     {% endfor %}
   </ul>
