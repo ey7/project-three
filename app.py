@@ -21,7 +21,10 @@ app.secret_key = os.getenv("SECRET_KEY")
 @app.route('/')
 @app.route('/home')
 def home():
-	return render_template('home.html')
+
+	random_blogs = ([blog for blog in db.blogs.aggregate([{"$sample": {"size": 6 }}])])
+
+	return render_template('home.html', random_blogs=random_blogs, title="Book Blog")
 
 
 # ------------USER LOGIN, REGISTRATION, ACCOUNT AND LOGOUT -------------#

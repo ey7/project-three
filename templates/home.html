@@ -10,7 +10,7 @@
     		 
     			<a class="btn btn-sm btn-success mt-3" href="{{url_for('account', account_name=session.username)}}"><img src="{{ url_for('static', filename='images/user.svg') }}" class="icon" alt="Account">Account</a>
   	 		</p>
-  	</div> 		
+  			
   	 {% else %}
 		  <h1>Welcome</h1>
     		 <p class="text-center">
@@ -19,5 +19,13 @@
     			<a class="btn btn-sm btn-success mt-3" href="{{(url_for('login'))}}"><img src="{{ url_for('static', filename='images/key.svg') }}" class="icon" alt="Login">Login</a>
   	 		</p>
   	 	{% endif %}
-      
+    </div> <!-- end of jumbotron -->
+    
+    <!-- blog cards -->
+    <div class="row">
+        {% for blog in random_blogs %}
+            {% include "includes/_cards.html" %}
+        {% endfor %}
+    </div>
+    
 {% endblock %}
