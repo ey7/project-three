@@ -21,7 +21,10 @@ app.secret_key = os.getenv("SECRET_KEY")
 @app.route('/')
 @app.route('/home')
 def home():
-
+	"""
+	blog cards will display randomly in sets of 6 cards on the home page
+	with links to the respective blog titles
+	"""
 	random_blogs = ([blog for blog in db.blogs.aggregate([{"$sample": {"size": 6 }}])])
 
 	return render_template('home.html', random_blogs=random_blogs, title="Book Blog")
