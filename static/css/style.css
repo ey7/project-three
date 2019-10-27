@@ -134,7 +134,6 @@ h2 {
     -o-background-size: 100% 100%;
     color: #fff; 
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    margin: 40px 40px;
 }
 
 /* search icon that will appear in search bar on blogs and search page */
@@ -217,6 +216,7 @@ h2 {
    }
 }
 
+/* styling for the blog cards on the home page */
 .card-image {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     overflow: hidden;
@@ -224,6 +224,7 @@ h2 {
     width: 100%;
     max-height: 250px;
 }
+
 /* ------------------ general media queries ------------------- */
 
 /* medium screens and up */
