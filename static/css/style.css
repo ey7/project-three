@@ -209,13 +209,6 @@ h2 {
     padding-bottom: 10px;
 }
 
-/* media query for the blog image on blog.html */
-@media screen and (max-width: 400px) {
-   .blog-image {
-        float: none;
-   }
-}
-
 /* styling for the blog cards on the home page */
 .card-image {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -226,6 +219,16 @@ h2 {
 }
 
 /* ------------------ general media queries ------------------- */
+
+/* media queries for small screens */
+@media screen and (max-width: 400px) {
+   .card-image {
+        max-height: 200px;
+   }
+   .blog-image {
+        float: none;
+   }
+}
 
 /* medium screens and up */
 @media screen and (min-width: 768px) {
