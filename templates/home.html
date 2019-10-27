@@ -4,7 +4,7 @@
 
   	<div class="jumbotron">
   		{% if session.logged_in %}
-    	<h1>Welcome {{session.username | capitalize}}</h1>
+    	<h1 class="text-center">Welcome {{session.username | capitalize}}</h1>
     		 <p class="text-center">
     		 	<a class="btn btn-sm btn-success mt-3 mr-2" href="{{(url_for('blogs'))}}"><img src="{{ url_for('static', filename='images/book-reference.svg') }}" class="icon" alt="View Blogs">Blogs</a>
     		 
@@ -12,7 +12,7 @@
   	 		</p>
   			
   	 {% else %}
-		  <h1>Welcome</h1>
+		  <h1 class="text-center">Welcome to Book Blog</h1>
     		 <p class="text-center">
     		 	<a class="btn btn-sm btn-success mt-3 mr-2" href="{{(url_for('blogs'))}}"><img src="{{ url_for('static', filename='images/book-reference.svg') }}" class="icon" alt="View Blogs">Blogs</a>
     		 
@@ -20,12 +20,16 @@
   	 		</p>
   	 	{% endif %}
     </div> <!-- end of jumbotron -->
-    
+
+    <div>
+    <h2 class="text-center">Browse our book reviews</h2>
+  </div>
+
     <!-- blog cards -->
     <div class="row">
         {% for blog in random_blogs %}
             {% include "includes/_cards.html" %}
         {% endfor %}
     </div>
-    
+
 {% endblock %}
