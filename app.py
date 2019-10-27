@@ -27,7 +27,7 @@ def home():
 	"""
 	random_blogs = ([blog for blog in db.blogs.aggregate([{"$sample": {"size": 6 }}])])
 
-	return render_template('home.html', random_blogs=random_blogs, title="Book Blog")
+	return render_template('home.html', random_blogs=random_blogs, title="Books & more")
 
 
 # ------------USER LOGIN, REGISTRATION, ACCOUNT AND LOGOUT -------------#
@@ -188,7 +188,7 @@ def blogs():
     blogs = db.blogs.find().sort('_id', pymongo.DESCENDING).skip(
     	(current_page - 1)*page_limit).limit(page_limit)
 
-    return render_template('blogs.html', blogs=blogs, title='Blogs', pages=pages, current_page=current_page)
+    return render_template('blogs.html', blogs=blogs, title='Reviews', pages=pages, current_page=current_page)
 
 # Read and display one blog
 @app.route('/blog/<blog_id>')
@@ -205,7 +205,7 @@ def blog(blog_id):
 
 		return render_template('blog.html', blog=blog, title=blog['title'], current_user=current_user, author=author)
 	else:
-		return render_template('blog.html', blog=blog, title='Blog')
+		return render_template('blog.html', blog=blog, title='Review')
 
 #UPDATE
 # Update a particular blog
