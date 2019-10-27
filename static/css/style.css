@@ -202,6 +202,12 @@ h2 {
 
 }
 
+.blog-image {
+  float: left;
+  padding-right: 20px;
+  padding-bottom: 10px;
+}
+
 /* ------------------ general media queries ------------------- */
 
 /* medium screens and up */
