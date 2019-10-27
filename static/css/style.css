@@ -197,15 +197,24 @@ h2 {
     margin-left: 5px
 }
 
+/* added margin top for the form to add/edit image */
 #image-form-edit, #image-form-add {
     margin-top: 20px;
 
 }
 
+/* styling for the blog image on blog.html */
 .blog-image {
-  float: left;
-  padding-right: 20px;
-  padding-bottom: 10px;
+    float: left;
+    padding-right: 20px;
+    padding-bottom: 10px;
+}
+
+/* media query for the blog image on blog.html */
+@media screen and (max-width: 400px) {
+   .blog-image {
+        float: none;
+   }
 }
 
 /* ------------------ general media queries ------------------- */
