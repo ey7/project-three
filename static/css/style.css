@@ -224,8 +224,9 @@ h2 {
     color: #fff;
     margin-bottom: 15px;
     position: absolute;
-    background-color: #FF8800;
+    background-color: #28a745;
     padding: 5px;
+    border-radius: 3px;
 }
 
 /* ------------------ general media queries ------------------- */
