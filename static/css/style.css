@@ -231,7 +231,7 @@ h2 {
 /* styling for the blog image on blog.html */
 .blog-image {
     float: left;
-    padding-right: 20px;
+    padding-right: 10px;
     padding-bottom: 10px;
 }
 
@@ -279,6 +279,10 @@ h2 {
    }
    .blog-image {
         float: none;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
    }
 }
 
