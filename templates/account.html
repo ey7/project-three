@@ -2,10 +2,12 @@
 
 {% block content %}
     <h1><small> Welcome {{ account_name | capitalize }}</small></h1>
-    {% if count %}
-      <h2 class="account-margin"> You have <strong>{{count}}</strong> reviews</h2>
-    {% else %}
+    {% if count == 0 %}
       <h2 class="account-margin"> You have no reviews created</h2>
+      {% elif count == 1 %}
+      <h2 class="account-margin"> You have <strong>{{count}}</strong> review</h2>
+    {% else %}
+      <h2 class="account-margin"> You have <strong>{{count}}</strong> reviews</h2>
     {% endif %}
       <a class="btn btn-sm btn-success mb-4" href="{{(url_for('add_blog'))}}"><img src="{{ url_for('static', filename='images/document-add.svg') }}" class="icon" alt="Add Review"> Add review</a>
  
@@ -54,3 +56,4 @@
 </div>
 
 {% endblock %}
+
