@@ -169,6 +169,7 @@ h2 {
 .alert {
     max-width: 500px;
     margin: auto;
+    margin-bottom: 10px;
 }
 
 /* sets primary green colour to the bootstrap pagination */
