@@ -28,4 +28,4 @@ class ContentTitleForm(FlaskForm):
     content = TextAreaField('Content', validators=[DataRequired(),
         Length(min=1)])
     image = StringField('Blog Image', validators=[Optional()])
-    submit = SubmitField('Add new blog')
+    submit = SubmitField('Add review')

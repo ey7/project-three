@@ -3,11 +3,11 @@
 {% block content %}
     <h1><small> Welcome {{ account_name | capitalize }}</small></h1>
     {% if count %}
-      <h2 class="account-margin"> You have <strong>{{count}}</strong> blogs</h2>
+      <h2 class="account-margin"> You have <strong>{{count}}</strong> reviews</h2>
     {% else %}
-      <h2 class="account-margin"> You have no blogs created</h2>
+      <h2 class="account-margin"> You have no reviews created</h2>
     {% endif %}
-      <a class="btn btn-sm btn-success mb-4" href="{{(url_for('add_blog'))}}"><img src="{{ url_for('static', filename='images/document-add.svg') }}" class="icon" alt="Add Blog"> Add new blog</a>
+      <a class="btn btn-sm btn-success mb-4" href="{{(url_for('add_blog'))}}"><img src="{{ url_for('static', filename='images/document-add.svg') }}" class="icon" alt="Add Review"> Add review</a>
  
   <div class="table-responsive">
     <table class="table mt-3 table-sm table-striped">
@@ -29,7 +29,7 @@
           <!-- Modal content-->
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">Delete Blog</h5>
+              <h5 class="modal-title">Delete Review</h5>
               <button type="button" class="close" data-dismiss="modal">x</button>  
             </div>
             <div class="modal-body">
