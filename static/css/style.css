@@ -9,6 +9,7 @@ html {
     box-sizing: border-box;
 }
 
+/* give body postion relative so that the footer can be absolute */
 body {
     text-decoration: none;
   	font-family: 'Exo 2', sans-serif;
@@ -80,6 +81,7 @@ h2 {
     height: 35px;
 }
 
+/* github icon will change colour to green on hover */
 #github-icon:hover {
     fill: #28a745;
 }
@@ -131,6 +133,7 @@ h2 {
       padding: 20px;
       box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
       margin-top: 40px;
+      overflow: auto;
 }
 
 /* styling for the list group on the blogs page*/
