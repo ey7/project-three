@@ -48,7 +48,7 @@ def login():
 	form = UsernamePassword()
 	# if form is validated, continue
 	if form.validate_on_submit():
-		username_matches = db.users.find_one({'username': request.form['username'].lower()})
+		username_matches = db.users.find_one({'username': request.form['username']})
 		#check to ensure that hashed password matches one entered in form
 		if username_matches:
 			if check_password_hash(username_matches['password'],request.form['password']):
@@ -57,7 +57,7 @@ def login():
 				flash('You are now logged in', 'info')
 				return redirect(url_for('home'))
 		else: 
-			flash('Login did not work. Please check username and password', 'danger')			
+			flash('Login did not work. Please check username (lower case letters only) and password.', 'danger')			
 			
 	return render_template('login.html', form=form, title='Login')
 
