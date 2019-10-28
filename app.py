@@ -27,7 +27,7 @@ def home():
 	"""
 	random_blogs = ([blog for blog in db.blogs.aggregate([{"$sample": {"size": 6 }}])])
 
-	return render_template('home.html', random_blogs=random_blogs, title="Reviews & more")
+	return render_template('home.html', random_blogs=random_blogs, title="Book Reviews")
 
 
 # ------------USER LOGIN, REGISTRATION, ACCOUNT AND LOGOUT -------------#
