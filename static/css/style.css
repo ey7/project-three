@@ -237,7 +237,7 @@ h2 {
 /* styling for the blog cards on the home page */
 .card-image {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    overflow: hidden;
+    overflow: auto;
     position: relative;
     width: 100%;
     max-height: 250px;
@@ -247,10 +247,11 @@ h2 {
 .card-title {
     bottom: 0;
     color: #fff;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+    margin-right: 10px;
     position: absolute;
     background-color: #28a745;
-    padding: 5px;
+    padding: 3px;
     border-radius: 3px;
 }
 
