@@ -114,7 +114,50 @@ The app consists of over 10 pages relating to app functionality, such as home, a
 
 ## Deployment
 
+### Local Deployment
 
+To deploy locally, firstly you need the following:
+
+- A code editor such as Visual Studio Code, Sublime Text, Atom or another of your choosing.
+
+You must have the the following installed on your machine:
+
+- [PIP](https://pip.pypa.io/en/stable/installing/)
+- [Python 3](https://www.python.org/downloads/)
+- [GIT](https://git-scm.com/downloads)
+
+- Also you need to set up an acccount at [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) for your database.
+
+### Instructions
+
+1. Save a copy of the github repository located at https://github.com/ey7/project-three by clicking the "download zip" button at the top of the page and extracting the zip file to your download folder. If you have Git installed on your machine, you can clone the repository with the following command:
+
+`git clone https://github.com/ey7/project-three`
+
+2. Open a terminal window and change directory (cd) to the the project folder.
+
+3. Create a .flaskenv file which will contain the connection to the database and the secret key for the flask app.
+
+The .env file contents wil look something like the following:
+`MONGO_URI='Your Mongo URI connection details'`
+`SECRET_KEY='Your secret key'` 
+
+4. Install all required modules with the command: `pip -r requirements.txt`
+
+5. Create a new database on MongoDb  and call it FlaskBlog. In the database, create the following two collections:
+USERS
+```_id: "automatically generated object ID"
+username: "string"
+password: "string"```
+
+BLOGS 
+```_id: "automatically generated object ID"
+image: "string"
+posted_on: "integer"
+author: "string"
+content: "string"```
+
+ 6. You can now run the application with the following command: `python app.py`
 
 
 
