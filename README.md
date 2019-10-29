@@ -1,7 +1,7 @@
-# Python Flask book blogging app
+# Book Klub - A Python Flask book lovers app
 
-## Book Blogging App
-This Python Flask blogging app allows book lovers to read blogs and article about their favourite authors and books. Users can browse and search all content anonymously, or they can elect to register and sign in, where they can create, update and delete their own content. Full user authentication with hashed passwords gives added security. The app is intended as a resource for book lovers that would grow over time to a treasure trove of information.
+## A Flask app for bookworms
+This Python Flask app allows book lovers to read reviews and content about their favourite authors and books. Users can browse and search all content anonymously, or they can elect to register and sign in, where they can create, read, update and delete (CRUD) their own content. Full user authentication with hashed passwords gives added security. The app is intended as a resource for book lovers that would grow over time to a treasure trove of information.
 
  ## UX and Design Planning
 
@@ -12,9 +12,10 @@ Please view the [project strategy document](planning.md) for the app, which deta
 - Non logged in users will have restricted access to the app, and will only be able to view content.
 - Logged in users will also have access to their own content for creating, updating and deleting.
 - Registered users will have access to their own acccout page to create, read, update and delete their own blog content.
-- Search functionality with a searchbox will be implemented on the blogs page.
+- Search functionality with a searchbox will be implemented on the reviews page.
 - Flashed alert messages for success or warnings to aid and direct the user experience for good UX.
 - A delete modal will be implemented on the account page to ensure that registered users do not delete own content by accident. The modal offers a second chance to ensure delete is the intended action.
+- Pagination will be implemented on the book review page and search pages to limit the number of visible entries.
 
 ## User Stories
 
@@ -27,31 +28,71 @@ Please view the [project strategy document](planning.md) for the app, which deta
 
 ## App Content
 
-The app consists of over 10 pages relating to app functionality, such as home, account, blog, blogs, editBlog, addBlog, login, register, search and custom error pages.
+The app consists of over 10 pages relating to app functionality, such as home, account, review, reviews, edit review, add review, login, register, search and custom error pages.
 
 ## App Style
 
-- A primary colour of green with a secondary colour of orange throughout for visual consistency. 
+- A primary colour of green with secondary colours of orange and grey throughout for visual consistency.
 - A modern sans serif font of Exo 2.
 - An off white background with dark grey text for optimum readability.
+- To improve the UX, I used SVG icons throughout the site. In my opinion, SVG icons look crisper and are easier to work with than font icons. When placed inline they are easier to style, and they also load on the page much faster than font icons. 
 
 ## Features
 
-- Full CRUD functionality. All users can read content. Authorized users can create, update and delete content.
-- Full user registration, authentication, login and logout functionality with hashed passwords courtesy of Werkzeug security. New users can register and existing users can login.
-- Individual user account pages that lists a user's authored content, if any.
-- Flash message alerts for both success and danger that aid the user experience, in particular with user authentication and CRUD actions.
-- Pop out delete modal on the account page that asks the user if they are sure about a delete which cannot be undone.
-- Responsive navigation with hamburger drop down menu icon for small and medium screens.
-- Search functionality for word search in blog titles.
+###### Navbar
+
+The navbar is displayed on all pages. When logged out, it displays links to home, reviews, register and login. When logged in, it displays links to home, reviews, account and logout.
+
+###### Register
+
+A user can register an account by creating a username and a password. The username must be unique and be between 4 and 20 characters long. If the username is already taken, the username will get a flash message to say that the username is taken. If any field is empty or does not meet the character length or password match requirements, the user will be given an error message. Otherwise if successful the user will be logged in and taken to the home page. 
+
+###### Login
+
+A user can log in to their account by entering their username and password. Due to the way the app was designed with usernames stored in lower case in the database, usernames must be entered in lowercase. If the password or username is not correct, a warning flash will appear. If the correct details are entered, a new user session will be opened and redirected to the home page.
+
+###### Logout
+
+Logged in users can log out by clicking on the logout link in the navbar. A success flash will tell them that they are logged out and they will be redirected to the home page.
+
+###### View all reviews
+
+The reviews link on the navbar is always visible, regardless of whether the user is logged in or out. It leads to the reviews page which lists all content using bootrap pagination to limit the number of entries on the page to five titles. Users can scroll to other pages using the pagination buttons to view more content. Content is displayed in decending order, with the newest title entries appearing on the first page.
+
+###### View a single review
+
+When a user clicks on a title to read it, the user is taken to the single review page where all the blog/review content is visible on the page. A small thumbnail image associated with the blog appears in the top left hand corner on desktop and at the top of the screen on mobile and smaller devices.
+
+###### Search for reviews
+
+On the reviews page, a searchbar appears at the top of the page where a user can search by keyword. They are then redirected to the search page where the results, if any, are displayed. Pagination is also implemented on the page in the case of multiple results.
+
+###### Account
+
+Logged in users can view their account by clicking on the link in the navbar or home page. An add review button at top gives the option to create new content. The account page will list all of their created book reviews, if any. If the user has content, this will be displayed in table format with a column for title name, author and date posted. For each content entry, there is a corresponding edit and delete button where the user has the option to update or delete directly.
+
+###### Create a review
+
+To create a review, the user can click on the add review button at the top of the account page. This will bring them to a page where a form will allow them to enter a title, content and an image url for their post. The image URL is optional. An error message will display if the title or content fields are left empty. If the add review is successful, the user will be redirected to the account page where they can view the new post.
+
+###### Update a review
+
+To update a review, the user can click on the edit review button which sits to the right of each corresponding blog entry. This will bring them to a page where a form will allow them to edit the title, content and/or the image url for their post. The image URL is optional. An error message will display if the title or content fields are left empty. If the edit review is successful, the user will be redirected to the account page where they can view the newly edited post.
+
+###### Delete a review
+
+To delete a review, the user can click on the edit review button which sits to the right of each corresponding blog entry. This will activate a popup delete modal that will ask them if they are sure they want to delete. The user has the option to confirm or cancel the delete. If delete is chosen a flash message will tell them that the review has been deleted. The user will be redirected to the account page where the review will no longer be visible. A cancel action just dismisses the modal with no action taken.
+
+###### Flash alerts to aid the user experience
+
+Flash messaging for success and warnings have been implemented throughout the site to aid the user experience, particularly where the user interacts with a form for user authetication and CRUD actions. For example, green success flash messages tell the user that their actions were successful, while orange warning messages tell them that they were unsuccessful or performing an action that is forbidden.
 
 ## Features to be implemented
 
-- Full text search functionality. I would like for the user to be abe to do a full text search.
+The following features were not implemented due to time constraints:
+
+- Full text search functionality. I would like for the user to be able to do a full text search.
 - I would like to implement a loading spinner that activates when a page is loading.
-- Pagination on the blogs and acccout page, to limit the number of blogs on each page.
-- Images. It would be nice for the user to have the option to upload a photo with their blog.
-- I would like to add a background image or gif animation for the search and error pages.
 - I would like to add a forgot password feature whereby the user could reset their password.
 
 ## Technologies Used
@@ -62,10 +103,11 @@ The app consists of over 10 pages relating to app functionality, such as home, a
 - [Jquery](https://jquery.com/) and [Popper Js](https://popper.js.org/) for Bootstrap functionality.
 - [Google fonts](https://fonts.google.com/) for fast loading on Exo 2 font.
 - Git for version control and [Github](https://github.com/) for repository hosting.
--[Heroku](https://heroku.com/) to host the site.
+- [Heroku](https://heroku.com/) to host the site.
 - [Figma](https://www.figma.com) for mock ups of the site.
 - [MongoDB](https://www.mongodb.com) for NoSql database functionality.
 - [CK Editor](https://www.ckeditor.com) for an attractive editing area on the add and edit blog pages.
+- [Cloudinary](https://cloudinary.com/) for image delivery via their api to the app.
   
 ## Resources
 
@@ -87,6 +129,37 @@ The app consists of over 10 pages relating to app functionality, such as home, a
 - The 404 page was tested to ensure it displayed correctly if an errant url was entered.
 - Similarly all navigation links, back and forward buttons and submit and routing buttons were tested to ensure that everything was working as intended.
 - All user CRUD functionality and authetication was tested to ensure that all the required queries and actions were being perfomed on the database correctly.
+
+### Testing the authorizaation function
+
+Only logged in users have access to certain pages. Logged out users should not have access to routes such as accounts and logout. I tested all these and the flash warning message appeared, warning the user that accesss was forbidden.
+
+### User Registration 
+
+I created my own account and made test reviews. I can log in, update my password, add, edit, and delete my own reviews. I also made test accounts to see if it was possible to delete or edit another user's reviews from another account.
+
+### Add A Review
+
+I made test reviews to test the create review function. I tested submitting a review with no image to see if the placeholder image would appear, and it does. I attempted to submit the form without some required fields, but it wasn't possible.
+
+### Update A Review 
+
+I tested a number of reviews to make sure the edit review function was working correctly. When the form is successfully validated, the review updates with the new data.
+
+### Delete A Review 
+
+I tested the delete function on test reviews, and it removes the selected reviews from the database. The modal popped up and worked as intended, deleting the item from the database.
+
+### Read A Single Review
+
+Reviews were tested by clicking on the review cards on the home page. The review data successfully displayed on screen.
+
+### Account Page 
+
+The account page successfully shows user reviews. I made a test account with no reviews to test the view of a new user compared to a user who had content. A new user is told they have no content and is invited to add a  review.
+
+### Further testing and code validation
+
 - The app was tested using developer tools throughout the project on multiple browsers - Chrome, Mozilla & Opera etc.
 - The developer console was used throughout the project to check for javascript errors and issues.
 - The links and buttons on all pages were manually tested to ensure everything was working correctly.
@@ -97,20 +170,31 @@ The app consists of over 10 pages relating to app functionality, such as home, a
 - I also tested the website on [google mobile friendly](https://search.google.com/test/mobile-friendly) and recieved a mobile friendly result. 
 - I tested the website on personal and other family devices such as my laptop and android mobile phone, iPad and iPhone and Samsung Galaxy Tab in both potrait and landscape orientations.
 
-## Issues
+## Bugs and known issues
 
-## Investigation and resolution of issues
+- If a registered user logged in using an uppercase letter in the name, for example `Eoin instead of eoin`, they would be logged in but treated by the system as a different user. I checked the login code and realised that the `lower()` function was causing this issue. I removed this and the bug was resolved.
 
-## Image credits
+- Due to the way the code is set up, a registered user can now only login using lowercase letters. This is a quick fix due to time constraints, but would have to be improved for user authentication on a commercial production app.
+
+## Content credits
 
 - The favicon for the site was downloaded for free from [iconscout](https://iconscout.com/).
 - SVG icons throughout the site were used courtesy of [Zondicons]((https://www.zondicons.com/).
+- Card images and thumbnails were taken from [QBD Bookstore](https://www.qbd.com.au/)
+- Book review content was taken from [The Guardian](https://www.theguardian.com/)
+- Placeholder image taken from [Texas Teen Reads](https://www.tsl.texas.gov/sites/default/files/public/tslac/ld/projects/ttr/2008/clipartcolor/images/skydiver1_400c.jpg) 
+- No copyright infringement is intended as this is an educational project.
 
 ## Acknowledgements
 
 -Thanks to [W3 Schools](https://www.w3schools.com/) and [Flask Documentation](https://flask.palletsprojects.com) who helped with many code ideas and snippets, they have been acknowleged in the code.
 
-- I drew much inspiration and ideas from Brad Traversy, Miguel Grinberg, Corey Schaefer and Pretty Printed, who explained many Flask methods and techniques on Youtube and their personal websites.
+- I drew much inspiration and code ideas from the following videos and content:
+
+- [Brad Traversy](https://www.youtube.com/watch?v=zRwy8gtgJ1A) 
+- [Miguel Grinberg](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world) 
+- [Corey Schafer](https://www.youtube.com/watch?v=MwZwr5Tvyxo)
+- [Pretty Printed](https://prettyprinted.com/flaskcheatsheet)
 
 ## Deployment
 
@@ -138,7 +222,7 @@ You must have the the following installed on your machine:
 
 3. Create a .flaskenv file which will contain the connection to the database and the secret key for the flask app.
 
-The .env file contents wil look something like the following:
+The .flaskenv file contents wil look something like the following:
 `MONGO_URI='Your Mongo URI connection details'`
 `SECRET_KEY='Your secret key'` 
 
@@ -166,7 +250,7 @@ content: "string"
 
 ### Remote Deployment
 
-- The app can be delpoyed to Heroku. Do the following:
+- The app can be deployed to Heroku. Do the following:
 
 1. In the terminal, create a `requirements.txt` file using the command `pip freeze > requirements.txt`
 
