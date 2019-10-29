@@ -126,7 +126,7 @@ You must have the the following installed on your machine:
 - [Python 3](https://www.python.org/downloads/)
 - [GIT](https://git-scm.com/downloads)
 
-- Also you need to set up an acccount at [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) for your database.
+- Also you need to set up an account at [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) for your database.
 
 ### Instructions
 
@@ -144,20 +144,58 @@ The .env file contents wil look something like the following:
 
 4. Install all required modules with the command: `pip -r requirements.txt`
 
-5. Create a new database on MongoDb  and call it FlaskBlog. In the database, create the following two collections:
+5. Create a new database on MongoDb and call it flaskBlog. In the database, create the following two collections:
 USERS
-```_id: "automatically generated object ID"
+```
+_id: "automatically generated object ID"
 username: "string"
-password: "string"```
-
+password: "string"
+```
 BLOGS 
-```_id: "automatically generated object ID"
+```
+_id: "automatically generated object ID"
 image: "string"
 posted_on: "integer"
 author: "string"
-content: "string"```
+content: "string"
+```
 
- 6. You can now run the application with the following command: `python app.py`
+6. You can now run the application with the following command: `python app.py`
+
+7. The website can be visited on localhost, port 5000 at `http://127.0.0.1:5000`
+
+### Remote Deployment
+
+- The app can be delpoyed to Heroku. Do the following:
+
+1. In the terminal, create a `requirements.txt` file using the command `pip freeze > requirements.txt`
+
+2. In the terminal, create a Procfile by running the `echo web: python app.py > Procfile` command.
+
+3. Push these files along with the project to your GitHub repository.
+
+4. Create a new app on [Heroku dashboard](https://dashboard.heroku.com/apps), give it a name and set the region to whichever is closest to you.
+
+5. From the Heroku dashboard of your app, click on "Deploy" > "Deployment method" and select GitHub.
+
+6. Confirm the linking of the Heroku app to the correct GitHub repository.
+
+7. In the Heroku dashboard for the application, click on "Settings" > "Reveal Config Vars".
+
+Set the following config vars: 
+
+Key | Value 
+IP | 0.0.0.0 |
+MONGO_URI | `mongodb+srv://<username>:<password>@<cluster_name>-qtxun.mongodb.net/<database_name>?retryWrites=true&w=majority`
+SECRET_KEY | `<your secret key here>`	
+
+8. Click 'Deploy' in the Heroku Dashboard, and select 'enable automatic deployment'.
+
+9. You should now be able to launch the app on Heroku
+
+
+
+
 
 
 
