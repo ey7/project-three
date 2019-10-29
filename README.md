@@ -185,6 +185,7 @@ content: "string"
 Set the following config vars: 
 
 Key | Value 
+--- | --- 
 IP | 0.0.0.0 |
 MONGO_URI | `mongodb+srv://<username>:<password>@<cluster_name>-qtxun.mongodb.net/<database_name>?retryWrites=true&w=majority`
 SECRET_KEY | `<your secret key here>`	
