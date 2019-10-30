@@ -7,7 +7,11 @@ This Python Flask app allows book lovers to read reviews and content about their
 
 Please view the [project strategy document](planning.md) for the app, which details the project strategy, including the project planning of the UX and UI, scope, structure, skeleton and surface. 
 
-`The wireframes for the project can be viewed on [Balsamiq](https://balsamiq.cloud/sia05yd/p8etww8/r8212)`
+### Wireframes
+
+The wireframes for the project, created by [Balsamiq](https://balsamiq.com/), can be found [here](https://github.com/ey7/project-three/tree/master/wireframes)
+
+### Project Design summary
 
 - The app will be a fully functional blogging application with full CRUD functionality. All users can read blog content and authorized users can create, update and delete their own content.
 - The app will have full user registration, authorization and authentication functionality with hashed passwords.
