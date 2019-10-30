@@ -5,7 +5,9 @@ This Python Flask app allows book lovers to read reviews and content about their
 
  ## UX and Design Planning
 
-Please view the [project strategy document](planning.md) for the app, which details the project strategy, including the project planning of the UX and UI, scope, structure, skeleton and surface. I used [Figma](https://www.figma.com) for the intial website design of the homepage.
+Please view the [project strategy document](planning.md) for the app, which details the project strategy, including the project planning of the UX and UI, scope, structure, skeleton and surface. 
+
+`The wireframes for the project can be viewed on [Balsamiq](https://balsamiq.cloud/sia05yd/p8etww8/r8212)`
 
 - The app will be a fully functional blogging application with full CRUD functionality. All users can read blog content and authorized users can create, update and delete their own content.
 - The app will have full user registration, authorization and authentication functionality with hashed passwords.
@@ -104,7 +106,7 @@ The following features were not implemented due to time constraints:
 - [Google fonts](https://fonts.google.com/) for fast loading on Exo 2 font.
 - Git for version control and [Github](https://github.com/) for repository hosting.
 - [Heroku](https://heroku.com/) to host the site.
-- [Figma](https://www.figma.com) for mock ups of the site.
+- [Balsamiq](https://balsamiq.com/) for mock ups of the site.
 - [MongoDB](https://www.mongodb.com) for NoSql database functionality.
 - [CK Editor](https://www.ckeditor.com) for an attractive editing area on the add and edit blog pages.
 - [Cloudinary](https://cloudinary.com/) for image delivery via their api to the app.
@@ -130,7 +132,7 @@ The following features were not implemented due to time constraints:
 - Similarly all navigation links, back and forward buttons and submit and routing buttons were tested to ensure that everything was working as intended.
 - All user CRUD functionality and authetication was tested to ensure that all the required queries and actions were being perfomed on the database correctly.
 
-### Testing the authorizaation function
+### Testing the authorization function
 
 Only logged in users have access to certain pages. Logged out users should not have access to routes such as accounts and logout. I tested all these and the flash warning message appeared, warning the user that accesss was forbidden.
 
@@ -179,7 +181,7 @@ The account page successfully shows user reviews. I made a test account with no 
 ## Content credits
 
 - The favicon for the site was downloaded for free from [iconscout](https://iconscout.com/).
-- SVG icons throughout the site were used courtesy of [Zondicons]((https://www.zondicons.com/).
+- SVG icons throughout the site were used courtesy of [Zondicons](https://www.zondicons.com/).
 - Card images and thumbnails were taken from [QBD Bookstore](https://www.qbd.com.au/)
 - Book review content was taken from [The Guardian](https://www.theguardian.com/)
 - Placeholder image taken from [Texas Teen Reads](https://www.tsl.texas.gov/sites/default/files/public/tslac/ld/projects/ttr/2008/clipartcolor/images/skydiver1_400c.jpg) 
@@ -187,7 +189,7 @@ The account page successfully shows user reviews. I made a test account with no 
 
 ## Acknowledgements
 
--Thanks to [W3 Schools](https://www.w3schools.com/) and [Flask Documentation](https://flask.palletsprojects.com) who helped with many code ideas and snippets, they have been acknowleged in the code.
+- Thanks to [W3 Schools](https://www.w3schools.com/) and [Flask Documentation](https://flask.palletsprojects.com) who helped with many code ideas and snippets, they have been acknowleged in the code.
 
 - I drew much inspiration and code ideas from the following videos and content:
 
