@@ -47,9 +47,9 @@ The app consists of over 10 pages relating to app functionality, such as home, a
 
 #### Navbar
 
-The navbar is displayed on all pages. When logged out, it displays links to home, reviews, register and login. 
+The navbar is displayed on all pages. When logged out, it displays links to home, reviews, register and login. <hr>
 <img src="static/images/loggedOut.png" alt="logged out navbar" style="max-width:100%;">
-When logged in, it displays links to home, reviews, account and logout.
+When logged in, it displays links to home, reviews, account and logout. <hr>
 <img src="static/images/loggedIn.png" alt="logged in navbar" style="max-width:100%;">
 #### Register
 
@@ -67,24 +67,28 @@ Logged in users can log out by clicking on the logout link in the navbar. A succ
 
 #### View all reviews
 
-The reviews link on the navbar is always visible, regardless of whether the user is logged in or out. It leads to the reviews page which lists all content using bootstrap pagination to limit the number of entries on the page to five titles. Users can scroll to other pages using the pagination buttons to view more content. Content is displayed in decending order, with the newest title entries appearing on the first page.
+The reviews link on the navbar is always visible, regardless of whether the user is logged in or out. It leads to the reviews page which lists all content using bootstrap pagination to limit the number of entries on the page to five titles. Users can scroll to other pages using the pagination buttons to view more content. Content is displayed in decending order, with the newest title entries appearing on the first page.<hr>
+<img src="static/images/allreviews.png" alt="all reviews page" style="max-width:100%;">
 
 #### View a single review
 
-When a user clicks on a title to read it, the user is taken to the single review page where all the blog/review content is visible on the page. A small thumbnail image associated with the blog appears in the top left hand corner on desktop and at the top of the screen on mobile and smaller devices.
+When a user clicks on a title to read it, the user is taken to the single review page where all the blog/review content is visible on the page. A small thumbnail image associated with the blog appears in the top left hand corner on desktop and at the top of the screen on mobile and smaller devices.<hr>
+<img src="static/images/singlereviw.png" alt="single review page" style="max-width:100%;">
 
 #### Search for reviews
 
 On the reviews page, a searchbar appears at the top of the page where a user can search by keyword. They are then redirected to the search page where the results, if any, are displayed. Pagination is also implemented on the page in the case of multiple results.<hr>
-<img src="static/images/search.png" alt="search box" style="max-width:100%;">
+<img src="static/images/search.png" alt="search box page" style="max-width:100%;">
 
 #### Account
 
-Logged in users can view their account by clicking on the link in the navbar or home page. An add review button at top gives the option to create new content. The account page will list all of their created book reviews, if any. If the user has content, this will be displayed in table format with a column for title name, author and date posted. For each content entry, there is a corresponding edit and delete button where the user has the option to update or delete directly.
+Logged in users can view their account by clicking on the link in the navbar or home page. An add review button at top gives the option to create new content. The account page will list all of their created book reviews, if any. If the user has content, this will be displayed in table format with a column for title name, author and date posted. For each content entry, there is a corresponding edit and delete button where the user has the option to update or delete directly.<hr>
+<img src="static/images/account.png" alt="account page" style="max-width:100%;">
 
 #### Create a review
 
-To create a review, the user can click on the add review button at the top of the account page. This will bring them to a page where a form will allow them to enter a title, content and an image url for their post. The image URL is optional. An error message will display if the title or content fields are left empty. If the add review is successful, the user will be redirected to the account page where they can view the new post.
+To create a review, the user can click on the add review button at the top of the account page. This will bring them to a page where a form will allow them to enter a title, content and an image url for their post. The image URL is optional. An error message will display if the title or content fields are left empty. If the add review is successful, the user will be redirected to the account page where they can view the new post.<hr>
+<img src="static/images/create.png" alt="create a review page" style="max-width:100%;">
 
 #### Update a review
 
@@ -98,8 +102,8 @@ To delete a review, the user can click on the edit review button which sits to t
 
 #### Flash alerts to aid the user experience
 
-<img src="static/images/errorFlash.png" alt="error flash message" style="max-width:100%;">
-Flash messaging for success and warnings have been implemented throughout the site to aid the user experience, particularly where the user interacts with a form for user authetication and CRUD actions. For example, green success flash messages tell the user that their actions were successful, while orange warning messages tell them that they were unsuccessful or performing an action that is forbidden.
+<img src="static/images/errorFlash.png" alt="error flash message" style="max-width:100%;"> <hr>
+Flash messaging for success and warnings have been implemented throughout the site to aid the user experience, particularly where the user interacts with a form for user authetication and CRUD actions. For example, green success flash messages tell the user that their actions were successful, while orange warning messages tell them that they were unsuccessful or performing an action that is forbidden.<hr>
 <img src="static/images/successFlash.png" alt="success flash message" style="max-width:100%;">
 
 ## Features to be implemented
