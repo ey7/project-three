@@ -3,13 +3,47 @@
 ## A Flask app for bookworms
 This Python Flask app allows book lovers to read reviews and content about their favourite authors and books. Users can browse and search all content anonymously, or they can elect to register and sign in, where they can create, read, update and delete (CRUD) their own content. Full user authentication with hashed passwords gives added security. The app is intended as a resource for book lovers that would grow over time to a treasure trove of information. <hr>
 <img src="static/images/bookKlub.jpg" alt="responsive design viewports" style="max-width:100%;">
+
+# Table of Contents
+
+[UX and Design Planning](#ux-and-design-planning)
+[Wireframes](#wireframes)
+[Project Design Summary](#project-design-summary)
+[User Stories](#user-stories)
+[App Content](#app-content)
+[App Style](#app-style)
+[Features](#features)
+    [Navbar](#navbar)
+    [Register](#register)
+	[Login](#login)
+	[Logout](#logout)
+	[View all reviews](#view-all-reviews)
+	[View a single review](#view-a-single-recipe)
+	[Search for reviews](#search-for-reviews)
+	[Account](#account)
+	[Create a review](#create-a-review)
+	[Update a review](#update-a-review)
+	[Delete a review](#delete-a-review)
+	[Flash alerts](#flash-alerts)
+[Features to be implemented](#features-to-be-implemented)
+[Technologies Used](#technologies-used)
+[Resources](#resources)
+[Testing](#testing)
+[Further testing](#further-testing)
+[Bugs and known issues](#bugs-and-known-issues)
+[Content credits](#content-credits)
+[Acknowledgements](#acknowledgements)
+[Deployment](#deployment)
+	[Local Deployment](#local-deployment)
+	[Remote Deployment](#remote-deployment)
+
  ## UX and Design Planning
 
 Please view the [project strategy document](planning.md) for the app, which details the project strategy, including the project planning of the UX and UI, scope, structure, skeleton and surface. 
 
 ### Wireframes
 
-The wireframes for the project, created by [Balsamiq](https://balsamiq.com/), can be found [here](https://github.com/ey7/project-three/tree/master/wireframes)
+The wireframes for the project, created with [Balsamiq](https://balsamiq.com/), can be found [here](https://github.com/ey7/project-three/tree/master/wireframes)
 
 ### Project Design Summary
 
@@ -73,7 +107,7 @@ The reviews link on the navbar is always visible, regardless of whether the user
 #### View a single review
 
 When a user clicks on a title to read it, the user is taken to the single review page where all the blog/review content is visible on the page. A small thumbnail image associated with the blog appears in the top left hand corner on desktop and at the top of the screen on mobile and smaller devices.<hr>
-<img src="static/images/singlereviw.png" alt="single review page" style="max-width:100%;">
+<img src="static/images/singlereview.png" alt="single review page" style="max-width:100%;">
 
 #### Search for reviews
 
@@ -96,11 +130,11 @@ To update a review, the user can click on the edit review button which sits to t
 
 #### Delete a review
 
-To delete a review, the user can click on the edit review button which sits to the right of each corresponding blog entry. This will activate a popup delete modal that will ask them if they are sure they want to delete. The user has the option to confirm or cancel the delete. If delete is chosen a flash message will tell them that the review has been deleted. The user will be redirected to the account page where the review will no longer be visible. A cancel action just dismisses the modal with no action taken.
+To delete a review, the user can click on the delete review button which sits to the right of each corresponding blog entry. This will activate a popup delete modal that will ask them if they are sure they want to delete. The user has the option to confirm or cancel the delete. If delete is chosen a flash message will tell them that the review has been deleted. The user will be redirected to the account page where the review will no longer be visible. A cancel action just dismisses the modal with no action taken.
 <hr>
 <img src="static/images/deleteModal.png" alt="delete modal" style="max-width:100%;">
 
-#### Flash alerts to aid the user experience
+#### Flash alerts
 
 <img src="static/images/errorFlash.png" alt="error flash message" style="max-width:100%;"> <hr>
 Flash messaging for success and warnings have been implemented throughout the site to aid the user experience, particularly where the user interacts with a form for user authetication and CRUD actions. For example, green success flash messages tell the user that their actions were successful, while orange warning messages tell them that they were unsuccessful or performing an action that is forbidden.<hr>
@@ -177,7 +211,7 @@ Reviews were tested by clicking on the review cards on the home page. The review
 
 The account page successfully shows user reviews. I made a test account with no reviews to test the view of a new user compared to a user who had content. A new user is told they have no content and is invited to add a  review.
 
-### Further testing and code validation
+### Further testing
 
 - The app was tested using developer tools throughout the project on multiple browsers - Chrome, Mozilla & Opera etc.
 - The developer console was used throughout the project to check for javascript errors and issues.
@@ -194,6 +228,8 @@ The account page successfully shows user reviews. I made a test account with no 
 - If a registered user logged in using an uppercase letter in the name, for example `Eoin instead of eoin`, they would be logged in but treated by the system as a different user. I checked the login code and realised that the `lower()` function was causing this issue. I removed this and the bug was resolved.
 
 - Due to the way the code is set up, a registered user can now only login using lowercase letters. This is a quick fix due to time constraints, but would have to be improved for user authentication on a commercial production app.
+
+- I intially used the standard CK editor for the add and edit review screens, but then realized that the standard toolbar allows the user to upload content such as images that will not render correctly in the app. For this reason, I changed changed it to the basic toolbar which restricts users to a much smaller amount of options such as bold and italic text etc.
 
 ## Content credits
 
