@@ -53,11 +53,13 @@ When logged in, it displays links to home, reviews, account and logout.
 <img src="static/images/loggedIn.png" alt="logged in navbar" style="max-width:100%;">
 #### Register
 
-A user can register an account by creating a username and a password. The username must be unique and be between 4 and 20 characters long. If the username is already taken, the username will get a flash message to say that the username is taken. If any field is empty or does not meet the character length or password match requirements, the user will be given an error message. Otherwise if successful the user will be logged in and taken to the home page. 
+A user can register an account by creating a username and a password. The username must be unique and be between 4 and 20 characters long. If the username is already taken, the username will get a flash message to say that the username is taken. If any field is empty or does not meet the character length or password match requirements, the user will be given an error message. Otherwise if successful the user will be logged in and taken to the home page.<hr>
+<img src="static/images/register.png" alt="register page" style="max-width:100%;"> 
 
 #### Login
 
-A user can log in to their account by entering their username and password. Due to the way the app was designed with usernames stored in lower case in the database, usernames must be entered in lowercase. If the password or username is not correct, a warning flash will appear. If the correct details are entered, a new user session will be opened and redirected to the home page.
+A user can log in to their account by entering their username and password. Due to the way the app was designed with usernames stored in lower case in the database, usernames must be entered in lowercase. If the password or username is not correct, a warning flash will appear. If the correct details are entered, a new user session will be opened and redirected to the home page.<hr>
+<img src="static/images/login.png" alt="login page" style="max-width:100%;">
 
 #### Logout
 
@@ -65,7 +67,7 @@ Logged in users can log out by clicking on the logout link in the navbar. A succ
 
 #### View all reviews
 
-The reviews link on the navbar is always visible, regardless of whether the user is logged in or out. It leads to the reviews page which lists all content using bootrap pagination to limit the number of entries on the page to five titles. Users can scroll to other pages using the pagination buttons to view more content. Content is displayed in decending order, with the newest title entries appearing on the first page.
+The reviews link on the navbar is always visible, regardless of whether the user is logged in or out. It leads to the reviews page which lists all content using bootstrap pagination to limit the number of entries on the page to five titles. Users can scroll to other pages using the pagination buttons to view more content. Content is displayed in decending order, with the newest title entries appearing on the first page.
 
 #### View a single review
 
@@ -73,7 +75,7 @@ When a user clicks on a title to read it, the user is taken to the single review
 
 #### Search for reviews
 
-On the reviews page, a searchbar appears at the top of the page where a user can search by keyword. They are then redirected to the search page where the results, if any, are displayed. Pagination is also implemented on the page in the case of multiple results.
+On the reviews page, a searchbar appears at the top of the page where a user can search by keyword. They are then redirected to the search page where the results, if any, are displayed. Pagination is also implemented on the page in the case of multiple results.<hr>
 <img src="static/images/search.png" alt="search box" style="max-width:100%;">
 
 #### Account
@@ -91,6 +93,7 @@ To update a review, the user can click on the edit review button which sits to t
 #### Delete a review
 
 To delete a review, the user can click on the edit review button which sits to the right of each corresponding blog entry. This will activate a popup delete modal that will ask them if they are sure they want to delete. The user has the option to confirm or cancel the delete. If delete is chosen a flash message will tell them that the review has been deleted. The user will be redirected to the account page where the review will no longer be visible. A cancel action just dismisses the modal with no action taken.
+<hr>
 <img src="static/images/deleteModal.png" alt="delete modal" style="max-width:100%;">
 
 #### Flash alerts to aid the user experience
