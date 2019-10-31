@@ -120,7 +120,7 @@
 - Home page with jumbotron and links to blog content.
 - Images required for the jumbotron, and icons to act as good user UX.
 - Blog content to make the website interesting. 
-- Visually attrative acccount page that will list a users content.
+- Visually attractive acccount page that will list a users content.
 - Visually attractive forms for CRUD and user authentication actions. 
 
 ## Structure

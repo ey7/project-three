@@ -47,7 +47,9 @@ The app consists of over 10 pages relating to app functionality, such as home, a
 
 #### Navbar
 
-The navbar is displayed on all pages. When logged out, it displays links to home, reviews, register and login. When logged in, it displays links to home, reviews, account and logout.
+The navbar is displayed on all pages. When logged out, it displays links to home, reviews, register and login. 
+<img src="static/images/loggedOut.png" alt="logged out navbar" style="max-width:100%;">
+When logged in, it displays links to home, reviews, account and logout.
 
 #### Register
 
