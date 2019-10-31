@@ -50,7 +50,7 @@ The app consists of over 10 pages relating to app functionality, such as home, a
 The navbar is displayed on all pages. When logged out, it displays links to home, reviews, register and login. 
 <img src="static/images/loggedOut.png" alt="logged out navbar" style="max-width:100%;">
 When logged in, it displays links to home, reviews, account and logout.
-
+<img src="static/images/loggedIn.png" alt="logged in navbar" style="max-width:100%;">
 #### Register
 
 A user can register an account by creating a username and a password. The username must be unique and be between 4 and 20 characters long. If the username is already taken, the username will get a flash message to say that the username is taken. If any field is empty or does not meet the character length or password match requirements, the user will be given an error message. Otherwise if successful the user will be logged in and taken to the home page. 
@@ -74,6 +74,7 @@ When a user clicks on a title to read it, the user is taken to the single review
 #### Search for reviews
 
 On the reviews page, a searchbar appears at the top of the page where a user can search by keyword. They are then redirected to the search page where the results, if any, are displayed. Pagination is also implemented on the page in the case of multiple results.
+<img src="static/images/search.png" alt="search box" style="max-width:100%;">
 
 #### Account
 
@@ -90,10 +91,13 @@ To update a review, the user can click on the edit review button which sits to t
 #### Delete a review
 
 To delete a review, the user can click on the edit review button which sits to the right of each corresponding blog entry. This will activate a popup delete modal that will ask them if they are sure they want to delete. The user has the option to confirm or cancel the delete. If delete is chosen a flash message will tell them that the review has been deleted. The user will be redirected to the account page where the review will no longer be visible. A cancel action just dismisses the modal with no action taken.
+<img src="static/images/deleteModal.png" alt="delete modal" style="max-width:100%;">
 
 #### Flash alerts to aid the user experience
 
+<img src="static/images/errorFlash.png" alt="error flash message" style="max-width:100%;">
 Flash messaging for success and warnings have been implemented throughout the site to aid the user experience, particularly where the user interacts with a form for user authetication and CRUD actions. For example, green success flash messages tell the user that their actions were successful, while orange warning messages tell them that they were unsuccessful or performing an action that is forbidden.
+<img src="static/images/successFlash.png" alt="success flash message" style="max-width:100%;">
 
 ## Features to be implemented
 
