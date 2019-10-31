@@ -2,7 +2,7 @@
 
 ## A Flask app for bookworms
 This Python Flask app allows book lovers to read reviews and content about their favourite authors and books. Users can browse and search all content anonymously, or they can elect to register and sign in, where they can create, read, update and delete (CRUD) their own content. Full user authentication with hashed passwords gives added security. The app is intended as a resource for book lovers that would grow over time to a treasure trove of information. <hr>
-<img src="static/images/bookKlub.png" alt="responsive design viewports" style="max-width:100%;">
+<img src="static/images/bookKlub.jpg" alt="responsive design viewports" style="max-width:100%;">
  ## UX and Design Planning
 
 Please view the [project strategy document](planning.md) for the app, which details the project strategy, including the project planning of the UX and UI, scope, structure, skeleton and surface. 
@@ -45,51 +45,51 @@ The app consists of over 10 pages relating to app functionality, such as home, a
 
 ## Features
 
-##### Navbar
+#### Navbar
 
 The navbar is displayed on all pages. When logged out, it displays links to home, reviews, register and login. When logged in, it displays links to home, reviews, account and logout.
 
-##### Register
+#### Register
 
 A user can register an account by creating a username and a password. The username must be unique and be between 4 and 20 characters long. If the username is already taken, the username will get a flash message to say that the username is taken. If any field is empty or does not meet the character length or password match requirements, the user will be given an error message. Otherwise if successful the user will be logged in and taken to the home page. 
 
-##### Login
+#### Login
 
 A user can log in to their account by entering their username and password. Due to the way the app was designed with usernames stored in lower case in the database, usernames must be entered in lowercase. If the password or username is not correct, a warning flash will appear. If the correct details are entered, a new user session will be opened and redirected to the home page.
 
-##### Logout
+#### Logout
 
 Logged in users can log out by clicking on the logout link in the navbar. A success flash will tell them that they are logged out and they will be redirected to the home page.
 
-##### View all reviews
+#### View all reviews
 
 The reviews link on the navbar is always visible, regardless of whether the user is logged in or out. It leads to the reviews page which lists all content using bootrap pagination to limit the number of entries on the page to five titles. Users can scroll to other pages using the pagination buttons to view more content. Content is displayed in decending order, with the newest title entries appearing on the first page.
 
-##### View a single review
+#### View a single review
 
 When a user clicks on a title to read it, the user is taken to the single review page where all the blog/review content is visible on the page. A small thumbnail image associated with the blog appears in the top left hand corner on desktop and at the top of the screen on mobile and smaller devices.
 
-##### Search for reviews
+#### Search for reviews
 
 On the reviews page, a searchbar appears at the top of the page where a user can search by keyword. They are then redirected to the search page where the results, if any, are displayed. Pagination is also implemented on the page in the case of multiple results.
 
-##### Account
+#### Account
 
 Logged in users can view their account by clicking on the link in the navbar or home page. An add review button at top gives the option to create new content. The account page will list all of their created book reviews, if any. If the user has content, this will be displayed in table format with a column for title name, author and date posted. For each content entry, there is a corresponding edit and delete button where the user has the option to update or delete directly.
 
-##### Create a review
+#### Create a review
 
 To create a review, the user can click on the add review button at the top of the account page. This will bring them to a page where a form will allow them to enter a title, content and an image url for their post. The image URL is optional. An error message will display if the title or content fields are left empty. If the add review is successful, the user will be redirected to the account page where they can view the new post.
 
-##### Update a review
+#### Update a review
 
 To update a review, the user can click on the edit review button which sits to the right of each corresponding blog entry. This will bring them to a page where a form will allow them to edit the title, content and/or the image url for their post. The image URL is optional. An error message will display if the title or content fields are left empty. If the edit review is successful, the user will be redirected to the account page where they can view the newly edited post.
 
-##### Delete a review
+#### Delete a review
 
 To delete a review, the user can click on the edit review button which sits to the right of each corresponding blog entry. This will activate a popup delete modal that will ask them if they are sure they want to delete. The user has the option to confirm or cancel the delete. If delete is chosen a flash message will tell them that the review has been deleted. The user will be redirected to the account page where the review will no longer be visible. A cancel action just dismisses the modal with no action taken.
 
-##### Flash alerts to aid the user experience
+#### Flash alerts to aid the user experience
 
 Flash messaging for success and warnings have been implemented throughout the site to aid the user experience, particularly where the user interacts with a form for user authetication and CRUD actions. For example, green success flash messages tell the user that their actions were successful, while orange warning messages tell them that they were unsuccessful or performing an action that is forbidden.
 
@@ -103,9 +103,9 @@ The following features were not implemented due to time constraints:
 
 ## Technologies Used
 
-- HTMl and CSS for website layout and design.
+- HTML and CSS for website layout and design.
 - [Bootstrap](https://getbootstrap.com/) for modern styling with responsive navigation, tables and buttons. 
-- Javascript for site functionality.
+- [Javascript](https://developer.mozilla.org/en-US/docs/Web/javascript) for site functionality.
 - [Jquery](https://jquery.com/) and [Popper Js](https://popper.js.org/) for Bootstrap functionality.
 - [Google fonts](https://fonts.google.com/) for fast loading on Exo 2 font.
 - Git for version control and [Github](https://github.com/) for repository hosting.
