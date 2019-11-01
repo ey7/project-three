@@ -16,7 +16,7 @@
                     <span>{{ error }}</span> {% endfor %}
                 </div>
                     {% else %} 
-                        {{ form.username(autofocus=true, class="form-control", required=true, placeholder=" Enter username", aria-label="enter username") }} 
+                        {{ form.username(autofocus=true, class="form-control", required=true, placeholder=" Enter username") }} 
                     {% endif %}
             </div>
             <!--password field-->
@@ -27,7 +27,7 @@
                         <span>{{ error }}</span> {% endfor %}
                     </div>
                     {% else %} 
-                        {{ form.password(required=true, class="form-control", placeholder="Enter password", aria-label="enter password") }} 
+                        {{ form.password(required=true, class="form-control", placeholder="Enter password") }} 
                     {% endif %}
             </div>
                 <!--submit button-->
