@@ -91,6 +91,10 @@ h2 {
     color: white;
 }
 
+.table-responsive {
+    background-color:#fff;
+}
+
 /* signup icon on login page*/
 .signup-icon{
     width: 30px;
