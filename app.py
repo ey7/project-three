@@ -25,7 +25,7 @@ def home():
 	blog cards will display randomly in sets of 6 cards on the home page
 	with links to the respective blog titles
 	"""
-	random_blogs = ([blog for blog in db.blogs.aggregate([{"$sample": {"size": 6 }}])])
+	random_blogs = ([blog for blog in db.blogs.aggregate([{"$sample":{"size": 6 }}])])
 
 	return render_template('home.html', random_blogs=random_blogs, title="Book Reviews")
 
@@ -42,7 +42,7 @@ def login():
 	"""
 	# if user is already logged in, flash a message and redirect to home
 	if 'logged_in' in session:
-		flash ('You are already logged in', 'danger')
+		flash('You are already logged in', 'danger')
 		return redirect(url_for('home'))
 	#form is linked to the relevant login class
 	form = UsernamePassword()
@@ -51,7 +51,7 @@ def login():
 		username_matches = db.users.find_one({'username': request.form['username']})
 		#check to ensure that hashed password matches one entered in form
 		if username_matches:
-			if check_password_hash(username_matches['password'],request.form['password']):
+			if check_password_hash(username_matches['password'], request.form['password']):
 				session['username'] = request.form['username']
 				session['logged_in'] = True
 				flash('You are now logged in', 'info')
@@ -115,11 +115,11 @@ def account(account_name):
 		return redirect(url_for('home'))
 	else:
 		# assigns the current user
-		current_user = db.users.find_one({'username': account_name })
+		current_user = db.users.find_one({'username': account_name})
 		# assigns the current_users blogs
 		current_user_blogs = db.blogs.find({'author': account_name}).sort([('_id', -1)])
 		# get the count of the user's blogs
-		count = db.blogs.find({'author': account_name }).count()
+		count = db.blogs.find({'author': account_name}).count()
 		#return the acccount template
 
 	return render_template('account.html', account_name=account_name, current_user=current_user,
@@ -164,7 +164,7 @@ def add_blog():
 		blog = db.blogs.insert_one({
 			'title': request.form['title'],
 			'content': request.form['content'],
-			'image' : request.form['image'],
+			'image': request.form['image'],
 			'author': author,
 			'posted_on': posted_on,
 			})
@@ -172,7 +172,7 @@ def add_blog():
 		return redirect(url_for('account', account_name=author))
 	else:
 		flash('Empty title or content fields are not allowed', 'danger')
-		return redirect(url_for('account', account_name=author))	
+		return redirect(url_for('account', account_name=author))
 
 #READ
 # Read all blogs
@@ -227,7 +227,7 @@ def edit_blog(blog_id):
 	# if the current username does not match that of the blog_selected author, block the edit
 	if current_user != blog_selected['author']:
 		flash('Sorry only the author can edit this blog', 'danger')
-		return redirect (url_for('blog', blog_id=blog_id))
+		return redirect(url_for('blog', blog_id=blog_id))
 	else:
 		# fill the form with the selected data
 		form = ContentTitleForm(data=blog_selected)
@@ -239,7 +239,7 @@ def edit_blog(blog_id):
 			blog = db.blogs.update_one({'_id': ObjectId(blog_id)}, {'$set': {
 				'title': request.form['title'],
 				'content': request.form['content'],
-				'image' : request.form['image'],
+				'image': request.form['image'],
 				'author': current_user,
 				'posted_on': posted_on,
 				}})
@@ -256,7 +256,7 @@ def edit_blog(blog_id):
 @authorized
 def delete(blog_id):
 	"""
-	function to delete the current user's blogs. 
+	function to delete the current user's blogs.
 	Only blog author can delete their own work.
 	"""
 	# assigns the current user
@@ -291,7 +291,7 @@ def search():
 	
 	# search results will be sorted by id
 	results = db.blogs.find({'$text': {'$search': str(search_query)}},
-		{'score': {'$meta': 'textScore'}}).sort('_id', pymongo.DESCENDING).skip((current_page -1 )*page_limit).limit(page_limit)
+		{'score': {'$meta': 'textScore'}}).sort('_id', pymongo.DESCENDING).skip((current_page -1)*page_limit).limit(page_limit)
 	# code for pagination of search results
 	results_count = db.blogs.find({'$text': {'$search': str(search_query)}}).count()
 	results_pages = range(1, int(math.ceil(results_count / page_limit)) + 1)

@@ -2,16 +2,16 @@
     <div class="card">
 
         {% if blog.image %}
-        <img src="{{ blog.image }}" alt="Blog Image" class="img-fluid card-image">
+        <img src="{{ blog.image }}" alt="review image" class="img-fluid card-image">
         
         {% else %}
-        <img src="{{ url_for('static', filename='images/placeholder.jpg') }}" class="img-fluid card-image" alt="Blog">
+        <img src="{{ url_for('static', filename='images/placeholder.jpg') }}" class="img-fluid card-image" alt="image">
         
         {% endif %}
 
         <!-- image overlay text -->
         <div class="card-img-overlay">
-            <a href="{{ url_for('blog', blog_id=blog._id) }}">
+            <a href="{{ url_for('blog', blog_id=blog._id) }}" aria-label="view review">
                 <h6 class="card-title">{{ blog.title }}</h6>
             </a>   
         </div>

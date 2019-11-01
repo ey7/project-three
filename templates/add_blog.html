@@ -14,7 +14,7 @@
                     <span>{{ error }}</span> {% endfor %}
                 </div>
                     {% else %} 
-                        {{ form.title(autofocus=true, class="form-control mb-3", required=true, placeholder=" Enter title") }} 
+                        {{ form.title(autofocus=true, class="form-control mb-3", required=true, placeholder=" Enter title", aria-label="enter blog title") }} 
                     {% endif %}
             </div>
 
@@ -26,7 +26,7 @@
                         <span>{{ error }}</span> {% endfor %}
                     </div>
                     {% else %} 
-                        {{ form.content(required=true, class="form-control", id="editor", placeholder="Enter blog content") }} 
+                        {{ form.content(required=true, class="form-control", id="editor", placeholder="Enter blog content", aria-label="enter blog content here") }} 
                     {% endif %}
             </div>
             
@@ -38,12 +38,12 @@
                         <span>{{ error }}</span> {% endfor %}
                     </div>
                     {% else %} 
-                        {{ form.image( class="form-control", id="image-form-add", placeholder="Enter image url (optional)") }} 
+                        {{ form.image( class="form-control", id="image-form-add", placeholder="Enter image url (optional)", aria-label="enter optional image") }} 
                     {% endif %}
             </div>
             <!-- submit button -->
             <div class="form__group mt-3 mb-3">
-                    {{ form.submit(class="btn btn-sm btn-success") }}
+                    {{ form.submit(class="btn btn-sm btn-success", ) }}
             </div>
         </form>
 

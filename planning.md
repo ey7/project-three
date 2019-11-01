@@ -129,7 +129,7 @@
 - All pages will have navbar/header at the top of the page.
 - Jumbotron with button links on the home page.
 - Traditional top bar sticky navigation with burger navigation menu on mobile and small screens.
-- Table reauired to house all user account and blog content information. 
+- Table required to house all user account and blog content information. 
 - Forms required on all crud action and user authentication pages.
 
 **Information Architecture**
@@ -156,6 +156,6 @@
 - One major colour theme (green) with a scondary colour of orange throughout for visual consistency.
 - One sans-serif font across the whole site, with attractive Exo 2 modern font.
 - White background with dark grey text for optimum readability.
-- Attractive jumbotron on home page
+- Attractive jumbotron on home page.
 - Identical sticky navbar on all pages.
 - Green success flash alerts and orange warning alerts for good UX.

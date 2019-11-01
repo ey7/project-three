@@ -1,12 +1,12 @@
 <nav class="navbar mb-3 navbar-expand-sm bg-success sticky-top navbar-dark">
     <div class="container">
         
-        <a href="/" class="navbar-brand font-weight-bold"><img src="{{ url_for('static', filename='images/home.svg') }}" class="home-icon" alt="Home">Book Klub</a>
+        <a href="/" class="navbar-brand font-weight-bold"><img src="{{ url_for('static', filename='images/home.svg') }}" class="home-icon" aria-label="Book Klub Home" alt="Home">Book Klub</a>
 
         {% if title %}
-            <span class="pl-3 text-warning d-none d-lg-block"><strong>{{title}}</strong></span>
+            <span class="pl-3 text-warning d-none d-lg-block" aria-label="title"><strong>{{title}}</strong></span>
            {% else %}
-            <span class="pl-3 text-warning d-none d-lg-block"><strong>Book Klub</strong></span>
+            <span class="pl-3 text-warning d-none d-lg-block" aria-label="Book Klub"><strong>Book Klub</strong></span>
             {% endif %}
                     <button class="navbar-toggler" data-toggle="collapse" data-target="#dropdown">
                           <span class="navbar-toggler-icon"></span>
@@ -15,23 +15,23 @@
                 <ul class="navbar-nav ml-auto">
                     {% if session.logged_in %}
                     <li class="nav-item">
-                        <a href="{{ url_for('blogs') }}" class="nav-link text-light"><img src="{{ url_for('static', filename='images/book-reference.svg') }}" class="icon" alt="Reviews">Reviews</a>
+                        <a href="{{ url_for('blogs') }}" aria-label="read all reviews" class="nav-link text-light"><img src="{{ url_for('static', filename='images/book-reference.svg') }}" class="icon" alt="Reviews">Reviews</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{url_for('account', account_name=session.username)}}" class="nav-link text-light"><img src="{{ url_for('static', filename='images/user.svg') }}" class="icon" alt="Account">Account</a>
+                        <a href="{{url_for('account', account_name=session.username)}}" aria-label="account" class="nav-link text-light"><img src="{{ url_for('static', filename='images/user.svg') }}" class="icon" alt="Account">Account</a>
                     </li>   
                     <li class="nav-item">
-                        <a href="{{ url_for('logout')}}" class="nav-link text-light"><img src="{{ url_for('static', filename='images/lock-open.svg') }}" class="icon" alt="Logout">Logout</a>
+                        <a href="{{ url_for('logout')}}" aria-label="logout" class="nav-link text-light"><img src="{{ url_for('static', filename='images/lock-open.svg') }}" class="icon" alt="Logout">Logout</a>
                     </li>  
                     {% else %}               
                     <li class="nav-item">
-                        <a href="{{ url_for('blogs') }}" class="nav-link text-light"><img src="{{ url_for('static', filename='images/book-reference.svg') }}" class="icon" alt="Reviews">Reviews</a>
+                        <a href="{{ url_for('blogs') }}" aria-label="read all reviews" class="nav-link text-light"><img src="{{ url_for('static', filename='images/book-reference.svg') }}" class="icon" alt="Reviews">Reviews</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ url_for('login') }}" class="nav-link text-light"><img src="{{ url_for('static', filename='images/key.svg') }}" class="icon" alt="Login">Login</a>
+                        <a href="{{ url_for('login') }}" aria-label="login" class="nav-link text-light"><img src="{{ url_for('static', filename='images/key.svg') }}" class="icon" alt="Login">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ url_for('register') }}" class="nav-link text-light"><img src="{{ url_for('static', filename='images/user-add.svg') }}" class="register-icon" alt="Login">Register</a>
+                        <a href="{{ url_for('register') }}" aria-label="register" class="nav-link text-light"><img src="{{ url_for('static', filename='images/user-add.svg') }}" class="register-icon" alt="Register">Register</a>
                     </li>
                     {% endif %}
                 </ul>

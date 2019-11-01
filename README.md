@@ -1,17 +1,17 @@
 # Book Klub - A Python Flask book lovers app
-
-## A Flask app for bookworms
-This Python Flask app allows book lovers to read reviews and content about their favourite authors and books. Users can browse and search all content anonymously, or they can elect to register and sign in, where they can create, read, update and delete (CRUD) their own content. Full user authentication with hashed passwords gives added security. The app is intended as a resource for book lovers that would grow over time to a treasure trove of information. <hr>
+<hr>
 <img src="static/images/bookKlub.jpg" alt="responsive design viewports" style="max-width:100%;">
+
+[Book Klub](http://eoin-flask-blog.herokuapp.com/) allows book lovers to read reviews and content about their favourite authors and books. Users can browse and search all content anonymously, or they can elect to register and sign in, where they can create, read, update and delete (CRUD) their own content. Full user authentication with hashed passwords gives added security. The app is intended as a resource for book lovers that would grow over time to a treasure trove of information. 
 
 # Table of Contents
 
 - [UX and Design Planning](#ux-and-design-planning)
-- [Wireframes](#wireframes)
-- [Project Design Summary](#project-design-summary)
-- [User Stories](#user-stories)
-- [App Content](#app-content)
-- [App Style](#app-style)
+	- [Wireframes](#wireframes)
+	- [Project Design Summary](#project-design-summary)
+	- [User Stories](#user-stories)
+	- [App Content](#app-content)
+	- [App Style](#app-style)
 - [Features](#features)
    	- [Navbar](#navbar)
 	- [Register](#register)
@@ -57,7 +57,7 @@ The wireframes for the project, created with [Balsamiq](https://balsamiq.com/), 
 - A delete modal will be implemented on the account page to ensure that registered users do not delete own content by accident. The modal offers a second chance to ensure delete is the intended action.
 - Pagination will be implemented on the book review page and search pages to limit the number of visible entries.
 
-## User Stories
+### User Stories
 
 - As a user, I want to be able to read about the latest book reviews and author news.
 - As a user, I want to be able to navigate easily around the site and find the information I need.
@@ -66,11 +66,11 @@ The wireframes for the project, created with [Balsamiq](https://balsamiq.com/), 
 - As a registered user, I want proper security with hashed passwords.
 - As a registered user, I want a good user experience with success and warning message alerts, when I login, logout, or engage in CRUD actions on my own content.
 
-## App Content
+### App Content
 
 The app consists of over 10 pages relating to app functionality, such as home, account, review, reviews, edit review, add review, login, register, search and custom error pages.
 
-## App Style
+### App Style
 
 - A primary colour of green with secondary colours of orange and grey throughout for visual consistency.
 - A modern sans serif font of Exo 2.
@@ -79,62 +79,62 @@ The app consists of over 10 pages relating to app functionality, such as home, a
 
 ## Features
 
-#### Navbar
+### Navbar
 
 The navbar is displayed on all pages. When logged out, it displays links to home, reviews, register and login. <hr>
 <img src="static/images/loggedOut.png" alt="logged out navbar" style="max-width:100%;">
 When logged in, it displays links to home, reviews, account and logout. <hr>
 <img src="static/images/loggedIn.png" alt="logged in navbar" style="max-width:100%;">
-#### Register
+### Register
 
 A user can register an account by creating a username and a password. The username must be unique and be between 4 and 20 characters long. If the username is already taken, the username will get a flash message to say that the username is taken. If any field is empty or does not meet the character length or password match requirements, the user will be given an error message. Otherwise if successful the user will be logged in and taken to the home page.<hr>
 <img src="static/images/register.png" alt="register page" style="max-width:100%;"> 
 
-#### Login
+### Login
 
 A user can log in to their account by entering their username and password. Due to the way the app was designed with usernames stored in lower case in the database, usernames must be entered in lowercase. If the password or username is not correct, a warning flash will appear. If the correct details are entered, a new user session will be opened and redirected to the home page.<hr>
 <img src="static/images/login.png" alt="login page" style="max-width:100%;">
 
-#### Logout
+### Logout
 
 Logged in users can log out by clicking on the logout link in the navbar. A success flash will tell them that they are logged out and they will be redirected to the home page.
 
-#### View all reviews
+### View all reviews
 
 The reviews link on the navbar is always visible, regardless of whether the user is logged in or out. It leads to the reviews page which lists all content using bootstrap pagination to limit the number of entries on the page to five titles. Users can scroll to other pages using the pagination buttons to view more content. Content is displayed in decending order, with the newest title entries appearing on the first page.<hr>
 <img src="static/images/allreviews.png" alt="all reviews page" style="max-width:100%;">
 
-#### View a single review
+### View a single review
 
 When a user clicks on a title to read it, the user is taken to the single review page where all the blog/review content is visible on the page. A small thumbnail image associated with the blog appears in the top left hand corner on desktop and at the top of the screen on mobile and smaller devices.<hr>
 <img src="static/images/singlereview.png" alt="single review page" style="max-width:100%;">
 
-#### Search for reviews
+### Search for reviews
 
 On the reviews page, a searchbar appears at the top of the page where a user can search by keyword. They are then redirected to the search page where the results, if any, are displayed. Pagination is also implemented on the page in the case of multiple results.<hr>
 <img src="static/images/search.png" alt="search box page" style="max-width:100%;">
 
-#### Account
+### Account
 
 Logged in users can view their account by clicking on the link in the navbar or home page. An add review button at top gives the option to create new content. The account page will list all of their created book reviews, if any. If the user has content, this will be displayed in table format with a column for title name, author and date posted. For each content entry, there is a corresponding edit and delete button where the user has the option to update or delete directly.<hr>
 <img src="static/images/account.png" alt="account page" style="max-width:100%;">
 
-#### Create a review
+### Create a review
 
 To create a review, the user can click on the add review button at the top of the account page. This will bring them to a page where a form will allow them to enter a title, content and an image url for their post. The image URL is optional. An error message will display if the title or content fields are left empty. If the add review is successful, the user will be redirected to the account page where they can view the new post.<hr>
 <img src="static/images/create.png" alt="create a review page" style="max-width:100%;">
 
-#### Update a review
+### Update a review
 
 To update a review, the user can click on the edit review button which sits to the right of each corresponding blog entry. This will bring them to a page where a form will allow them to edit the title, content and/or the image url for their post. The image URL is optional. An error message will display if the title or content fields are left empty. If the edit review is successful, the user will be redirected to the account page where they can view the newly edited post.
 
-#### Delete a review
+### Delete a review
 
 To delete a review, the user can click on the delete review button which sits to the right of each corresponding blog entry. This will activate a popup delete modal that will ask them if they are sure they want to delete. The user has the option to confirm or cancel the delete. If delete is chosen a flash message will tell them that the review has been deleted. The user will be redirected to the account page where the review will no longer be visible. A cancel action just dismisses the modal with no action taken.
 <hr>
 <img src="static/images/deleteModal.png" alt="delete modal" style="max-width:100%;">
 
-#### Flash alerts
+### Flash alerts
 
 <img src="static/images/errorFlash.png" alt="error flash message" style="max-width:100%;"> <hr>
 Flash messaging for success and warnings have been implemented throughout the site to aid the user experience, particularly where the user interacts with a form for user authetication and CRUD actions. For example, green success flash messages tell the user that their actions were successful, while orange warning messages tell them that they were unsuccessful or performing an action that is forbidden.<hr>
@@ -229,7 +229,7 @@ The account page successfully shows user reviews. I made a test account with no 
 
 - Due to the way the code is set up, a registered user can now only login using lowercase letters. This is a quick fix due to time constraints, but would have to be improved for user authentication on a commercial production app.
 
-- I intially used the standard CK editor for the add and edit review screens, but then realized that the standard toolbar allows the user to upload content such as images that will not render correctly in the app. For this reason, I changed changed it to the basic toolbar which restricts users to a much smaller amount of options such as bold and italic text etc.
+- I intially used the standard CK editor for the add and edit review screens, but then realized that the standard toolbar allows the user to upload content such as images that will not render correctly in the app. For this reason, I changed it to the basic toolbar which restricts users to a much smaller amount of options such as bold and italic text etc.
 
 ## Content credits
 
@@ -243,6 +243,8 @@ The account page successfully shows user reviews. I made a test account with no 
 ## Acknowledgements
 
 - Thanks to [W3 Schools](https://www.w3schools.com/) and [Flask Documentation](https://flask.palletsprojects.com) who helped with many code ideas and snippets, they have been acknowleged in the code.
+
+- Many thanks to my Code Institute mentor Seun Owonikoko, for her expertise, help and encouragement.
 
 - I drew much inspiration and code ideas from the following videos and content:
 
