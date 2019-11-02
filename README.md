@@ -159,7 +159,7 @@ The following features were not implemented due to time constraints:
 - [Heroku](https://heroku.com/) to host the site.
 - [Balsamiq](https://balsamiq.com/) for mock ups of the site.
 - [MongoDB](https://www.mongodb.com) for NoSql database functionality.
-- [CK Editor](https://www.ckeditor.com) for an attractive editing area on the add and edit blog pages.
+- [CK Editor](https://www.ckeditor.com) for an attractive editing area on the add and edit review pages.
 - [Cloudinary](https://cloudinary.com/) for image delivery via their api to the app.
   
 ## Resources
@@ -218,8 +218,8 @@ The account page successfully shows user reviews. I made a test account with no 
 - The links and buttons on all pages were manually tested to ensure everything was working correctly.
 - All breakpoints were tested for different screen sizes and viewports.
 - The app was tested on [Responsinator](https://www.responsinator.com/) and [Am I Responsive](http://ami.responsivedesign.is/) to ensure that the site pages were rendering correctly on all types of devices and orientations, such as Ipad and Iphone.
-- The app was put through the [HTML5 Validator](https://validator.w3.org/) and some errors and warnings related to stray tags and duplicate ids were fixed.
-- The app was put through [CSS Validator](https://jigsaw.w3.org/css-validator/) and some errors were uncovered related to the bootstrap css which is not something that I can control. My own css code was error free.
+- The app was put through the [HTML5 Validator](https://validator.w3.org/) and some errors and warnings related to the jinga templating language were flagged. Jinga is not recognised so this is normal.
+- The app was put through [CSS Validator](https://jigsaw.w3.org/css-validator/) and some errors were uncovered related to the Bootstrap css which is not something that I can control. My own css code was error free.
 - I also tested the website on [google mobile friendly](https://search.google.com/test/mobile-friendly) and recieved a mobile friendly result. 
 - I tested the website on personal and other family devices such as my laptop and android mobile phone, iPad and iPhone and Samsung Galaxy Tab in both potrait and landscape orientations.
 
@@ -335,10 +335,6 @@ SECRET_KEY | `<your secret key here>`
 
 9. You should now be able to launch the app on Heroku
 
+## Notice
 
-
-
-
-
-
-
+This project is for educational use only.
