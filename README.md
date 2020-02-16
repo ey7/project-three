@@ -2,6 +2,7 @@
 <hr>
 <img src="static/images/bookKlub.jpg" alt="responsive design viewports" style="max-width:100%;">
 
+This project is the third milestone project for the Code Institute Full Stack Software Development Diploma.
 [Book Klub](https://eoin-flask-blog.herokuapp.com/) allows book lovers to read reviews and content about their favourite authors and books. Users can browse and search all content anonymously, or they can elect to register and sign in, where they can create, read, update and delete (CRUD) their own content. Full user authentication with hashed passwords gives added security. The app is intended as a resource for book lovers that would grow over time to a treasure trove of information. 
 
 # Table of Contents
